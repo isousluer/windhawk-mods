@@ -2,1625 +2,1412 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://windhawk.net/</id>
     <title>Windhawk New Mod Releases</title>
-    <updated>2026-11-20T21:02:23.000Z</updated>
+    <updated>2026-11-27T16:03:28.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://windhawk.net/"/>
     <subtitle>New mods in the official collection of Windhawk mods</subtitle>
     <icon>https://windhawk.net/favicon.ico</icon>
     <rights>Ramen Software</rights>
     <entry>
-        <title type="html"><![CDATA[File Explorer navigation pane: thin divider, even padding 1.0]]></title>
-        <id>https://windhawk.net/mods/explorer-navigation-pane-spacing-fixes#bc7954695eee49136608c0d5c0e4f639c0f60681</id>
-        <link href="https://windhawk.net/mods/explorer-navigation-pane-spacing-fixes"/>
-        <updated>2026-11-20T21:02:23.000Z</updated>
-        <content type="html"><![CDATA[<h1>File Explorer navigation pane: thin divider, even padding</h1>
-<p>A set of small adjustments of the navigation pane of File Explorer: the tree
-of folders on the left of a folder window. Every adjustment has a setting, and
-can be changed or turned off.</p>
-<h2>Before and after</h2>
-<p>The pin icons are set to 10% opacity in this screenshot, and the pointer is on
-the folder Data (D:), which shows the expand arrows. The left half is without
-the mod, the right half is with the mod.</p>
-<p><img src="https://i.imgur.com/WKnigly.png" alt="Navigation pane, before and after"></p>
-<h2>What it does</h2>
+        <title type="html"><![CDATA[Taskbar App State Indicators 1.0.0]]></title>
+        <id>https://windhawk.net/mods/taskbar-app-state-indicators#3736d7598a4c9bf35e3647941de86bd5b20804ac</id>
+        <link href="https://windhawk.net/mods/taskbar-app-state-indicators"/>
+        <updated>2026-11-27T16:03:28.000Z</updated>
+        <content type="html"><![CDATA[<h1>Taskbar App State Indicators</h1>
+<p>See at a glance which taskbar apps are open, maximized, minimized, busy or
+waiting for you. Small marks are drawn on an invisible rounded frame around
+each icon, and they move along that frame whenever something changes.</p>
+<p><img src="https://raw.githubusercontent.com/Deen-0x/windhawk-assets/refs/heads/main/taskbar-app-state-indicators/demo.gif" alt="Demo"></p>
+<h2>What the marks mean</h2>
 <ul>
-<li><strong>Thin divider.</strong> The strip between the navigation pane and the files area
-is replaced with a line of 1 pixel. By default, the line has the color of
-the line below the command bar, for the light and for the dark theme. The
-color is configurable. The navigation pane can still be resized by dragging
-the divider.</li>
-<li><strong>Even padding.</strong> The gap to the left of the items of the navigation pane is
-made the same as the gap to the right of them. The size is configurable. A
-space above and below the contents of the navigation pane can be added too.</li>
-<li><strong>Pin icons.</strong> The pin icons to the right of the pinned folders can be made
-less visible, with a configurable opacity, or hidden.</li>
-<li><strong>Separators.</strong> The lines which separate the groups of the navigation pane
-can be made longer or shorter. They can go from edge to edge.</li>
-<li><strong>Expand arrows.</strong> The arrows can be moved vertically.</li>
+<li><strong>Open window</strong>: the two bottom corners, joined into a cup under the icon.</li>
+<li><strong>Maximized window</strong>: all four corners, with a cap over the icon too, or
+only the top corners if you prefer. With all corners connected, the sides
+join too wherever no indicator sits on them, so a maximized window can
+get the whole frame. Optionally, the corners an open or maximized app
+doesn't get are drawn dimmed, so the whole frame shows.</li>
+<li><strong>Minimized app</strong>: an underline. It's dimmed when the app's windows are
+on another virtual desktop, or suspended like some Store apps. Its length
+is measured along the frame, so on a round frame it's an arc.</li>
+<li><strong>Several windows</strong>: a grey dot on the left edge, or another shape (a
+square, a diamond, a half dot, half diamond or branch, a plus, X or
+equal sign), or the number of windows.</li>
+<li><strong>Badge</strong> (unread messages, notifications, overlay icons): a red dot on
+the right edge, in every window state, or another shape, or the badge's
+count, with the shape for badges without one. For apps that draw their
+count into an overlay icon (Telegram, Discord), the count is read from
+the description they give it (Discord's counts from 0, so 1 is added to
+it, for its PTB and Canary builds too). Without a number there
+(Outlook's, say), the shape stays.</li>
+<li><strong>Progress</strong> (downloads, copies, installs): the marks fill from left to
+right in green, yellow while paused, red on error. When the end isn't
+known, the marks pulse, scaling about the frame's center and back twice
+a cycle, the second time twice as fast (the dots, signs and counts stay
+put), or the underline sweeps across for a minimized app.</li>
+<li><strong>Attention</strong>: the marks turn orange while the app's button flashes.</li>
+<li><strong>Colors</strong>: the app in front gets your accent color, every other app
+grey. The app in front can also get thicker corner marks.</li>
+<li><strong>Pinned apps</strong> (optional, off by default): a dot or another shape at the
+top center, whether the app is running, minimized or not running. A
+pinned app's top corners then stay apart instead of forming a cap,
+leaving it its place.</li>
+<li><strong>Active app</strong> (optional, off by default): a dot or another shape at the
+bottom center of the app in front, in your accent color by default. Its
+bottom corners then stay apart instead of forming a cup.</li>
 </ul>
-<h2>Defaults</h2>
-<p>The divider, the padding, the pin icons and the offset of the arrows are
-adjusted by default. To get the stock look of a part back, use these values:</p>
+<p>The half dot and half diamond keep only the half facing the icon: their
+flat side lies on the frame's line. The branch is a plus without its outer
+arm: a line along the frame's edge with one arm towards the icon. All
+three point at their own icon, never at a neighbor's. The equal sign is
+the square's two edges that cross the frame's line, so its lines run
+towards the icon whichever edge it sits on.</p>
+<p>Counts go up to 99. Counts of one digit read normally; 10 and up turn
+vertical along the edge, so they don't run into the icon.</p>
+<p>The taskbar's own running indicator and progress bar are replaced by these
+marks. Its multi-window mark and badges are replaced too while the
+matching indicator is on. Everything comes back when the mod is disabled.</p>
+<h2>Animations</h2>
+<p>A minimized app's underline splits into the corners when it's restored, a
+maximized window's top corners travel up from the top center, and the
+dots, signs and counts grow from their centers. When the mod is turned
+on, the marks animate in; when it's turned off, they animate out while the
+taskbar's own indicators fade back in. Animations are controlled by the
+mod's own setting only, whatever the Windows animation setting is.
+Progress keeps moving even with them off, like the native progress bar.</p>
+<h2>Settings</h2>
 <ul>
-<li>Thin divider: off.</li>
-<li>Padding of the navigation pane: -1.</li>
-<li>Vertical padding of the navigation pane: 0.</li>
-<li>Hide the pin icons: off, with the opacity of 0.</li>
-<li>Vertical offset of the expand arrows: 0.</li>
+<li><strong>Frame</strong>: how far the frame sits from the icon, its corner radius, its
+line thickness (which grows inwards), and how the corners join: not at
+all, into a cup and a cap, or all around where nothing sits in between.</li>
+<li><strong>Appearance</strong>: the colors and opacity of the corner marks and the
+underline, for the app in front and for every other app, and the corner
+marks' line thickness on the app in front. Empty colors mean your
+accent color; <code>#Light|#Dark</code> sets a color per theme, and
+<code>#FF0000,#00FF00</code> a gradient.</li>
+<li><strong>Open and Maximized Windows</strong>: the marks' shape (rounded, diagonal or
+straight corners), whether maximized windows keep their bottom corners,
+and the dimmed missing corners.</li>
+<li><strong>Minimized Apps</strong>: the underline's length and ends, and its dimmed
+variant for apps running off screen.</li>
+<li><strong>Apps With Several Windows</strong>, <strong>Apps With a Badge</strong>: the shape (none, a
+dot, a square, a diamond, a half dot, half diamond or branch, a plus, X
+or equal sign), whether the count shows instead, their sizes and color.</li>
+<li><strong>Pinned Apps</strong>, <strong>Active App</strong>: none, a dot, a square, a diamond, a half
+dot, half diamond or branch, a plus, an X or an equal sign, its size and
+color.</li>
+<li><strong>Progress</strong>: its colors, and the pulse's size.</li>
+<li><strong>Attention</strong>: on or off, and its color.</li>
+<li><strong>Animations</strong>: on or off, and how long a movement takes.</li>
+<li><strong>Window Rules</strong>: what counts as an open window.</li>
 </ul>
-<p>The adjustment of the separators is turned off by default.</p>
-<h2>Other mods</h2>
-<p>The thin divider and the padding have no counterpart in other mods. For the
-rest, there are mods which do related things in a different way:</p>
+<h2>Notes</h2>
 <ul>
-<li><strong>Explorer TreeItem Tweaker</strong> and <strong>Classic Explorer Treeview</strong> can hide the
-pin icons. This mod can also fade them instead of hiding them.</li>
-<li><strong>Explorer TreeLine Killer</strong> hides the separators and changes the spacing
-around them. This mod keeps the separators and changes their length.</li>
-<li><strong>Explorer Navigation Tree Offset</strong> shifts the tree and can remove the
-expand arrows. This mod moves the arrows vertically by a pixel or two.</li>
+<li>Colors follow the system live: a new accent color, light and dark
+themes, high contrast and right-to-left taskbars.</li>
+<li>Taskbar Open Window Underline can also hide the running indicator. If you
+use both mods, turn that option off there: both use the same switch.</li>
+<li>Works alongside Windows 11 Taskbar Styler: when a theme is applied or
+removed, the native indicators the mod replaces are hidden again, and
+when the mod is turned off, they come back as the theme has them (a
+theme that hides them keeps them hidden).</li>
+<li>For bug reports, turn on <strong>Debug logging</strong> under Advanced and include the
+mod's log.</li>
 </ul>
-<p>The mods can be used together. A part of this mod which is set to its stock
-value does nothing at all, so if another mod takes care of the pin icons, the
-separators or the arrows, set that part to the stock value here, as listed
-above. The combinations with those mods weren't tested.</p>
-<p>The files area of a folder window is handled by a separate mod, <strong>File
-Explorer List view indent fix and files area spacing</strong>.</p>
-<h2>Scaling and themes</h2>
-<p>The padding and the side gaps of the separators follow the display scaling.
-The offset of the expand arrows is a small correction, and is applied in
-physical pixels regardless of the scaling.</p>
-<p>The mod was only tested with a single monitor. With several monitors of
-different scaling, the side gaps of the separators can be off on a monitor
-whose scaling differs from the one of the main monitor. A folder window which
-was moved to such a monitor can also keep the adjusted padding after the mod
-is turned off, until it's reopened.</p>
-<p>The automatic color of the thin divider is chosen when a folder window is
-opened. Windows which are already open when the theme changes keep the old
-color until they're reopened. The divider is left alone in the high contrast
-mode.</p>
-<h2>Other programs</h2>
-<p>By default, the mod only applies to File Explorer (<code>explorer.exe</code>). That's the
-recommended setup, and nothing has to be configured for it.</p>
-<p>The same navigation pane is used by the Open/Save dialogs of other programs.
-To adjust it there too, add the programs to the custom process inclusion list
-in the Advanced tab of the mod, by the name of the executable file, for
-example <code>notepad.exe</code>. <code>explorer.exe</code> doesn't have to be added, it's always
-included.</p>
-<p>It's also possible to add <code>*</code>, which means all programs. The mod is then
-loaded into every process, including the ones which never show a file dialog,
-so adding only the programs you need is the lighter option.</p>
-<p>Only 64-bit programs are supported. In a program other than File Explorer, the
-mod does nothing until the program loads <code>explorerframe.dll</code>, which usually
-happens when a file dialog is opened for the first time. From then on, the
-vertical offset of the expand arrows applies to all tree views of that
-program.</p>
-<h2>How it works</h2>
-<p>The divider and the padding are properties of DirectUI elements of the frame
-of a folder window. They're changed when a frame is created, and the windows
-which are already open are adjusted when the mod is loaded. The functions
-which are exported by <code>dui70.dll</code> are used for that. The adjustments are only
-made to elements which have the expected stock values.</p>
-<p>The pin icons are the state images of the tree of the navigation pane. The mod
-gives the tree a copy of its state image list with faded images, and leaves
-the list of File Explorer itself untouched.</p>
-<p>The separators are adjusted while File Explorer draws them, which relies on
-the debug symbols of <code>explorerframe.dll</code>. If that part can't be set up on a
-Windows build, the rest of the mod still works. The expand arrows are moved
-while they're drawn with the theme of a tree view.</p>
-<p>No files are modified. When the mod is turned off, the stock look is restored.</p>
-<p>Tested on Windows 11 build 26300 (26H2 preview) at 125% scaling, with the
-light and the dark theme.</p>
+<p>How it works, in short: each button's windows are found through the
+taskbar's view models and judged with <code>IsIconic</code>, <code>IsZoomed</code>, DWM cloaking
+and the virtual desktop manager, refreshed on window events. Progress,
+attention and badges are read from the button's own XAML (an overlay
+icon's count from the button's help text, where the taskbar puts the
+icon's description). The marks are composition shapes on a Direct2D path
+around the icon (two: the corners' follows the active app's thickness, the
+dots' keeps the frame's), moved by animating their trims along it on the
+render thread. The other shapes are composition lines, rectangles and
+small paths snapped to the screen's pixels, and the counts small XAML text
+blocks, all in the same host. The only layout change is the
+icon background's right margin, set to 0 while the mod's multi-window
+indicator takes the place of the native mark (restored when it doesn't).
+On builds where the needed symbols can't be resolved, the mod stays
+inactive and the log says so.</p>
 ]]></content>
         <author>
-            <name>NDruce</name>
-            <uri>https://github.com/NDruce</uri>
+            <name>Deen-0x</name>
+            <uri>https://github.com/Deen-0x</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Frosted Window Blur 1.0.0]]></title>
-        <id>https://windhawk.net/mods/frosted-window-blur#141d0f925046d4754460e14329212156629ca63c</id>
-        <link href="https://windhawk.net/mods/frosted-window-blur"/>
-        <updated>2026-11-20T20:04:59.000Z</updated>
-        <content type="html"><![CDATA[<h1>Frosted Window Blur</h1>
-<p>Give any window a frosted glass look, like the Windows 11 Settings app: what's
-behind the window is blurred, and you choose how strong the blur is for each
-window.</p>
-<p><img src="https://raw.githubusercontent.com/JeremyWayne93/windhawk-mods/readme-assets/frosted-window-blur/frosted-window-blur-levels.png" alt="Notepad with the blur off, at level 1 and at level 3"></p>
-<p><em>The same Notepad window with the blur off, at level 1 and at level 3.</em></p>
-<h2>Usage</h2>
-<ul>
-<li><strong>Ctrl + Shift + mouse wheel down</strong> over any window: more blur</li>
-<li><strong>Ctrl + Shift + mouse wheel up</strong>: less blur (the lowest step turns it off)</li>
-<li><strong>Ctrl + Shift + middle-click</strong> over a window: blur off</li>
-</ul>
-<p>Every window keeps its own blur level, and the blur stays the same when you
-click into another window. A small &quot;Blur 2/3&quot; indicator shows up briefly after
-every change.</p>
-<p>The key combination can be changed in the settings. The default doesn't use Alt,
-so it doesn't clash with mods that use Alt + wheel or Ctrl + Alt + wheel (for
-example to change opacity).</p>
-<p>There's also an optional small button next to the <strong>minimize</strong> button of the
-active window (off by default): left-click = next blur level (wraps back to
-off), right-click = blur off.</p>
-<p>The maximum level, the window's own opacity while blurred, the indicator, the
-button and excluded programs can all be changed in the mod settings, and the
-changes apply instantly. When the mod is disabled or unloaded, the blur is
-removed from every window and their opacity is restored.</p>
-<h2>How it works</h2>
-<ul>
-<li>The window itself isn't changed, except that it's made a bit see-through
-(75% by default) so the blur behind it shows. Windows that are already
-see-through (for example made so by another mod) keep their own opacity.</li>
-<li>The blur is drawn by helper windows of the mod that have no content of their
-own and only the DWM blur-behind effect. They sit directly behind the window
-in the z-order and follow it when it's moved, resized, minimized, restored,
-hidden or brought to the front. They never take focus and can't be clicked,
-so the blur doesn't turn off when the window loses focus.</li>
-<li>Windows' blur has a fixed radius, so every level stacks one more blur pass
-behind the window, which makes it noticeably stronger.</li>
-<li>It's fully event driven (<code>SetWinEventHook</code>, no polling timer), so it uses no
-CPU while nothing moves. Higher levels on large windows cost a bit more GPU.</li>
-<li>The wheel shortcut uses a keyboard hook that only arms a mouse hook while the
-modifier keys are held down. Both hooks run on their own thread that only
-forwards events. Over excluded programs, the taskbar and the desktop, the
-shortcut is passed through as usual.</li>
-<li>The mod runs in its own dedicated <code>windhawk.exe</code> process (a &quot;tool mod&quot;), so it
-doesn't inject into Explorer or any other program.</li>
-</ul>
-<h2>Limitations</h2>
-<ul>
-<li>Windows of programs running as administrator (for example Task Manager or
-Windhawk's own window) can't be changed, because Windows blocks a normal
-program from modifying them (UIPI). Windows that draw their own transparency
-are left alone too.</li>
-<li>While a window is dragged, the blur can trail a frame behind it.</li>
-<li>If another mod also blurs the same window, the effects add up.</li>
-</ul>
-]]></content>
-        <author>
-            <name>JeremyWayne93</name>
-            <uri>https://github.com/JeremyWayne93</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[File Copy Progress Bar Styles 1.0.0]]></title>
-        <id>https://windhawk.net/mods/copy-progress-styles#5f2d87ca50d9c4d0a3c8075bd81ae2bff4605f71</id>
-        <link href="https://windhawk.net/mods/copy-progress-styles"/>
-        <updated>2026-11-20T20:04:54.000Z</updated>
-        <content type="html"><![CDATA[<h1>File Copy Progress Bar Styles</h1>
-<p>Restyles the progress bar shown in the Windows file copy / move / delete dialog, and the
-extraction progress bar of 7-Zip and WinRAR.</p>
-<p>Screenshots of the styles are shown below.</p>
-<p><strong>Accent styles</strong> (use the accent color)</p>
-<ul>
-<li>
-<p><strong>Solid</strong> - flat color</p>
-<p><img src="https://i.imgur.com/vdd9Uv5.png" alt="Solid style"></p>
-</li>
-<li>
-<p><strong>Satin</strong> - gradient with a top highlight</p>
-</li>
-<li>
-<p><strong>Candy Cane</strong> - diagonal stripes</p>
-<p><img src="https://i.imgur.com/FzzmGxh.png" alt="Candy Cane style"></p>
-</li>
-<li>
-<p><strong>Neon Tube</strong> - dark track with a glowing core</p>
-<p><img src="https://i.imgur.com/fLQqUQt.png" alt="Neon Tube style"></p>
-</li>
-<li>
-<p><strong>Arcade</strong> - retro blocks</p>
-<p><img src="https://i.imgur.com/kTFi3jM.png" alt="Arcade style"></p>
-</li>
-</ul>
-<p><strong>Designer styles</strong> (fixed colors, some with their own track)</p>
-<ul>
-<li>
-<p><strong>Evergreen</strong> - dark green timeline with stepped bands and a diamond knob</p>
-<p><img src="https://i.imgur.com/G2zPbsh.png" alt="Evergreen style"></p>
-</li>
-<li>
-<p><strong>Sorbet</strong> - pink, yellow and blue segments</p>
-<p><img src="https://i.imgur.com/nx5igz7.png" alt="Sorbet style"></p>
-</li>
-<li>
-<p><strong>Polka</strong> - blue gradient with dot markers</p>
-<p><img src="https://i.imgur.com/VmmfywN.png" alt="Polka style"></p>
-</li>
-<li>
-<p><strong>Aurora</strong> - cyan-to-lilac gradient with an end marker and tick track</p>
-<p><img src="https://i.imgur.com/ZOjlvY1.png" alt="Aurora style"></p>
-</li>
-<li>
-<p><strong>Ember</strong> - orange diagonal stripes on a striped gray track</p>
-<p><img src="https://i.imgur.com/wf7WwLz.png" alt="Ember style"></p>
-</li>
-<li>
-<p><strong>Mint</strong> - soft green bar with a subtle bottom shade</p>
-<p><img src="https://i.imgur.com/fvcFM5f.png" alt="Mint style"></p>
-</li>
-<li>
-<p><strong>Fire &amp; Ice</strong> - red-to-icy-blue gradient</p>
-<p><img src="https://i.imgur.com/URI28xU.png" alt="Fire &amp; Ice style"></p>
-</li>
-<li>
-<p><strong>Prism</strong> - full-spectrum gradient</p>
-<p><img src="https://i.imgur.com/OZzUoOu.png" alt="Prism style"></p>
-</li>
-<li>
-<p><strong>Confetti</strong> - colorful mosaic</p>
-<p><img src="https://i.imgur.com/J7TYCcC.png" alt="Confetti style"></p>
-</li>
-<li>
-<p><strong>Carbon</strong> - dark mosaic on a dark track</p>
-<p><img src="https://i.imgur.com/RQL1wxd.png" alt="Carbon style"></p>
-</li>
-<li>
-<p><strong>Dusk</strong> - navy-to-orange-to-lilac gradient</p>
-<p><img src="https://i.imgur.com/o1m91bm.png" alt="Dusk style"></p>
-</li>
-</ul>
-<p>Paused and error states automatically switch to amber and red.</p>
-<p><strong>Notes</strong></p>
-<ul>
-<li>Only the copy dialog is restyled by default. The drive usage bars in This PC keep the
-standard Windows look. Turn on &quot;Also restyle other progress bars in Explorer&quot; to
-restyle those too.</li>
-<li>The mod also loads into 7-Zip (7zG.exe, 7zFM.exe) and WinRAR (WinRAR.exe) and restyles
-their extraction progress bars. To turn that off, switch off &quot;Also style 7-Zip and
-WinRAR&quot; in the settings (or add those processes to the mod's custom process exclusion
-list in the Advanced tab). Extracting a ZIP with Explorer's built-in &quot;Extract All&quot; uses
-the normal copy dialog.</li>
-<li>Tested on Windows 11. The theme lookup uses an undocumented uxtheme function (ordinal
-74), so other Windows versions have not been verified.</li>
-<li>In a dark copy dialog the tracks of the styles are darkened to match.</li>
-<li>Windows itself turns a drive bar red when the drive has under 10% free.</li>
-<li>Copy dialogs shown by other processes (for example inside an app's Open/Save dialog)
-are not styled. Add those processes in the mod's custom process inclusion list.</li>
-<li>Setting changes show up the next time the bar repaints.</li>
-<li>To troubleshoot, enable logging in the mod's Advanced tab and watch the log during a copy.</li>
-</ul>
-]]></content>
-        <author>
-            <name>Pixeliota</name>
-            <uri>https://github.com/Pixeliota</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows Border Switch 1.2.1]]></title>
-        <id>https://windhawk.net/mods/windows-border-switch#9f2ceff99e7031e99407c854368b55bd4f248acb</id>
-        <link href="https://windhawk.net/mods/windows-border-switch"/>
-        <updated>2026-11-20T20:04:48.000Z</updated>
-        <content type="html"><![CDATA[<h1>Windows Border Switch</h1>
-<p><strong>English</strong> · <a href="https://github.com/CTravkin/DSN_Windhawk_Mods/blob/main/Windows_Border_Switch/README.ru.md">Русский</a></p>
-<p>Windows Border Switch hides system-drawn borders around windows and panels in Windows 11.</p>
-<h2>Features</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><img src="https://raw.githubusercontent.com/CTravkin/DSN_Windhawk_Mods/main/Windows_Border_Switch/Assets/Screenshots/Dark_Border_Comparison.png" alt="Dark theme comparison, with default borders on the left and hidden borders on the right"></th>
-<th style="text-align:center"><img src="https://raw.githubusercontent.com/CTravkin/DSN_Windhawk_Mods/main/Windows_Border_Switch/Assets/Screenshots/Light_Border_Comparison.png" alt="Light theme comparison, with default borders on the left and hidden borders on the right"></th>
-</tr>
-</thead>
-</table>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Controls</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Active window</td>
-<td>The focused window's system border or its title bar accent color</td>
-</tr>
-<tr>
-<td>Inactive windows</td>
-<td>System borders of windows without focus</td>
-</tr>
-<tr>
-<td>Dialogs</td>
-<td>System borders of classic Win32 dialogs, with or without focus</td>
-</tr>
-<tr>
-<td>Taskbar</td>
-<td>The taskbar edge and the virtual desktops strip at the bottom of Task View</td>
-</tr>
-<tr>
-<td>Start menu</td>
-<td>The Start menu and its Phone Link panel</td>
-</tr>
-<tr>
-<td>Search</td>
-<td>The Windows Search panel</td>
-</tr>
-<tr>
-<td>Notifications</td>
-<td>The notification center, calendar, and notification banners on the desktop</td>
-</tr>
-<tr>
-<td>Quick Settings</td>
-<td>Quick Settings and the media controls above them</td>
-</tr>
-<tr>
-<td>Keyboard layout</td>
-<td>The outer border of the keyboard layout selector</td>
-</tr>
-<tr>
-<td>Widgets</td>
-<td>The outer border of the Widgets board</td>
-</tr>
-<tr>
-<td>Exceptions</td>
-<td>Keep the usual border and title bar for active, inactive, or all windows of selected apps</td>
-</tr>
-</tbody>
-</table>
-<p>The interface is available in English, Russian, Spanish, German, Brazilian Portuguese, and Simplified Chinese.</p>
-<h3>Limitations</h3>
-<ul>
-<li>Shell borders depend on the Windows build and Windows Web Experience Pack. After enabling or updating the mod, some panels may require restarting Windows Explorer or signing out and back in.</li>
-<li>Apps running as administrator, including Windhawk, may retain their borders. Apps that draw their own frames control their appearance.</li>
-</ul>
-<h2>Platforms</h2>
-<p>Requires Windows 11 x64 or ARM64.</p>
-<h3>Compatibility</h3>
-<p>The following mods overlap with Windows Border Switch for application window borders:</p>
-<ul>
-<li><a href="https://windhawk.net/mods/invisible-borders">Invisible Window Borders</a> — also hides system-drawn window borders.</li>
-<li><a href="https://windhawk.net/mods/win11-accent-border">Windows 11 Accent Window Border</a> — sets window border colors, which can conflict with hiding those borders.</li>
-</ul>
-<p>Do not use multiple mods to control the same window border or title bar: they can override each other's settings and exceptions. To use either mod for window borders and Windows Border Switch only for shell panels, set <strong>Active window</strong>, <strong>Inactive windows</strong>, and <strong>Dialogs</strong> to <strong>Windows-defined</strong> in Windows Border Switch.</p>
-<p>The following Styler mods customize shell panels. Their themes and custom rules may also change borders:</p>
-<ul>
-<li><a href="https://windhawk.net/mods/windows-11-start-menu-styler">Windows 11 Start Menu Styler</a> — styles the Start menu and Search panel (<a href="https://github.com/ramensoftware/windows-11-start-menu-styling-guide">styling guide</a>).</li>
-<li><a href="https://windhawk.net/mods/windows-11-taskbar-styler">Windows 11 Taskbar Styler</a> — styles the taskbar, including its edge (<a href="https://github.com/ramensoftware/windows-11-taskbar-styling-guide">styling guide</a>).</li>
-<li><a href="https://windhawk.net/mods/windows-11-notification-center-styler">Windows 11 Notification Center Styler</a> — styles notifications, the calendar, Quick Settings, and media controls (<a href="https://github.com/ramensoftware/windows-11-notification-center-styling-guide">styling guide</a>).</li>
-</ul>
-<p>If a theme or rule controls the same border, set the corresponding Windows Border Switch option to <strong>Windows-defined</strong>, or remove the overlapping Styler rules.</p>
-<h2>Usage</h2>
-<p>Open the mod's <strong>Settings</strong> to change each setting independently. Initially, the mod keeps the active window border, removes its title bar accent color, and hides the other listed borders. Choose <strong>Windows-defined</strong> to restore Windows styling for a setting.</p>
-<p>Under <strong>Exceptions</strong>, add an executable name such as <code>steam.exe</code> and select which windows to exempt under <strong>Do not hide border</strong>.</p>
-<h2>Links</h2>
-<ul>
-<li><a href="https://github.com/CTravkin/DSN_Windhawk_Mods/tree/main/Windows_Border_Switch">Windows Border Switch on GitHub</a></li>
-<li><a href="https://github.com/CTravkin/DSN_Windhawk_Mods/blob/main/README.md">DSN Windhawk Mods</a></li>
-</ul>
-]]></content>
-        <author>
-            <name>CTravkin</name>
-            <uri>https://github.com/CTravkin</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Automatic Folder Icons 1.0.0]]></title>
-        <id>https://windhawk.net/mods/auto-folder-icons#9bd932407ef64a7883ca4add937ede92251f8cc2</id>
-        <link href="https://windhawk.net/mods/auto-folder-icons"/>
-        <updated>2026-11-20T19:02:22.000Z</updated>
-        <content type="html"><![CDATA[<h1>Automatic Folder Icons</h1>
-<p>Put a <code>folder.ico</code> or <code>favicon.ico</code> file directly inside a folder, and Explorer
-shows it as the icon of that folder. Nothing else is needed: no <code>desktop.ini</code>,
-no registry changes, no folder attributes, and the mod never writes to your
-folders.</p>
-<p>Before and after:</p>
-<p><img src="https://i.imgur.com/mQgmUT8.png" alt="Before"> <img src="https://i.imgur.com/IfUzLX1.png" alt="After"></p>
-<h2>How it works</h2>
-<ul>
-<li><code>folder.ico</code> takes priority. If it is missing or isn't a valid icon,
-<code>favicon.ico</code> is used, and then the original Windows icon.</li>
-<li><code>favicon.ico</code> can be turned off in the mod settings. This is useful if you
-have web projects, where many folders contain a <code>favicon.ico</code>.</li>
-<li>Hidden icon files work too.</li>
-<li>A folder that has an icon file shows the icon instead of a thumbnail preview.</li>
-<li>Adding, replacing or removing the icon file is picked up within a couple of
-seconds while an Explorer window or the desktop is in use. If Windows keeps a
-cached icon, press F5 or reopen the parent folder.</li>
-</ul>
-<h2>Performance</h2>
-<ul>
-<li>Files, including ZIP and CAB archives, are skipped without touching the
-disk. Only folders are checked, with two small file lookups per folder.</li>
-<li>Up to 256 recently shown folders are remembered and rechecked every two
-seconds, and only while Explorer is the active app and you are using the
-PC. Nothing is checked while you work in another app or are away, and the
-disk tree is never scanned.</li>
-</ul>
-<h2>Limitations</h2>
-<ul>
-<li>Only <code>explorer.exe</code> is affected. Other apps, including their open and save
-dialogs, show the original icons.</li>
-<li>Only local fixed and removable drives are supported. Network paths, virtual
-folders, reparse points, cloud placeholders, paths longer than about 245
-characters and icon files larger than 4 MiB are skipped.</li>
-<li>After enabling or disabling the mod, some icons may stay cached until
-Explorer is restarted. The mod never restarts Explorer by itself.</li>
-</ul>
-]]></content>
-        <author>
-            <name>Sanekx Arcs</name>
-            <uri>https://github.com/SanekxArcs</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Simple Wallpaper Switcher 0.1.3]]></title>
-        <id>https://windhawk.net/mods/simple-wallpaper-switcher#05bfdedf882180fc609ad099c2d7ba21d3f56464</id>
-        <link href="https://windhawk.net/mods/simple-wallpaper-switcher"/>
-        <updated>2026-11-20T18:04:59.000Z</updated>
-        <content type="html"><![CDATA[<h1>Simple Wallpaper Switcher</h1>
-<p><img src="https://raw.githubusercontent.com/hheitlager/simple-wallpaper-switcher/main/assets/simple-wallpaper-switcher-banner.gif" alt="Simple Wallpaper Switcher showing the picker and wallpaper changes"></p>
-<h2>Screenshots</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Solid</th>
-<th style="text-align:center">Blurred</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/hheitlager/simple-wallpaper-switcher/main/assets/simple-wallpaper-switcher-solid-material.png" alt="Solid"></td>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/hheitlager/simple-wallpaper-switcher/main/assets/simple-wallpaper-switcher-blur-material.png" alt="Blurred"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Acrylic</th>
-<th style="text-align:center">Quick-menu</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/hheitlager/simple-wallpaper-switcher/main/assets/simple-wallpaper-switcher-acrylic-material.png" alt="Acrylic"></td>
-<td style="text-align:center"><img src="https://raw.githubusercontent.com/hheitlager/simple-wallpaper-switcher/main/assets/simple-wallpaper-switcher-taskbar-quick-menu.png" alt="Quick-menu"></td>
-</tr>
-</tbody>
-</table>
-<h3>Your wallpaper collection, ready when you are.</h3>
-<p>Browse your wallpapers in a compact visual picker, choose a new look, and watch it transition onto your desktop.</p>
-<h2>Find your next wallpaper</h2>
-<p>See your collection as a grid of thumbnails. Browse folders with the breadcrumb menu, click a wallpaper to apply it, or use the keyboard to move through your collection.</p>
-<h2>Stay in the flow</h2>
-<p>Choose another wallpaper while a transition is running. The effect retargets to your latest choice, so you can keep browsing without waiting for each change to finish.</p>
-<h2>Make it yours</h2>
-<p>Choose from the shared Emberveil themes and set the picker background to Solid, Blur, or Acrylic. Pick a transition effect, or let Random choose one for you.</p>
-<h2>Wallpaper behavior</h2>
-<p>Applying a wallpaper updates the Windows desktop wallpaper setting. Windows keeps that image after the mod is disabled or removed, and applying an image replaces a Slideshow or Windows Spotlight background. The picker applies the image to the monitor under the pointer.</p>
-<h2>Get started</h2>
-<p>Set your wallpaper folder in the mod settings, then open the picker from its tray icon or keyboard shortcut.</p>
-<p>The tray icon stays available while the mod is enabled. Disable the mod in Windhawk to stop the switcher.</p>
-<p>Click a thumbnail to apply it. Use the arrow keys to move, Enter or Space to apply, and the mouse wheel to change pages. Click the magnifying glass in the breadcrumb, or start typing, to filter filenames in the current folder. Press Escape to clear the search.</p>
-<p>Supported image formats: JPEG, PNG, BMP, and WebP.</p>
-]]></content>
-        <author>
-            <name>HHeitlager</name>
-            <uri>https://github.com/hheitlager</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Cursor Scheme Extension 1.0.3]]></title>
-        <id>https://windhawk.net/mods/cursor-scheme-extension#427f188871d9503beced8388f8a4a1fdeb1fd4dd</id>
-        <link href="https://windhawk.net/mods/cursor-scheme-extension"/>
-        <updated>2026-11-20T18:04:53.000Z</updated>
-        <content type="html"><![CDATA[<h1>Cursor Scheme Extension</h1>
-<p><strong>English</strong> · <a href="https://github.com/CTravkin/DSN_Windhawk_Mods/blob/main/Cursor_Scheme_Extension/README.ru.md">Русский</a></p>
-<p>Cursor Scheme Extension replaces built-in application pointers with pointers from the selected Windows scheme. This includes middle-button autoscroll, the pointing hand, resizing, and text and table selection.</p>
-<p>The mod uses the scheme already selected in Windows and picks up changes to it automatically. Transformed pointers are created and cached in memory.</p>
-<h2>Features</h2>
-<p><img src="https://raw.githubusercontent.com/CTravkin/DSN_Windhawk_Mods/main/Cursor_Scheme_Extension/Assets/Previews/Comparison.png" alt="Three pairs of application pointers without and with Cursor Scheme Extension: Windows Aero, W11 Concept, and Vision"></p>
-<p>Cursor artwork: Windows and Office by Microsoft, <a href="https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-HD-v2-890672103">W11 Concept</a> by jepriCreations, <a href="https://www.deviantart.com/idarques/art/Vision-Cursor-911891424">Vision</a> by IDarques.</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Controls</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hand</td>
-<td>Pointing hand over buttons, links, and other interactive elements</td>
-</tr>
-<tr>
-<td>Resize</td>
-<td>Resizing panels, rows, columns, and objects</td>
-</tr>
-<tr>
-<td>Move</td>
-<td>Dragging cells, ranges, and objects</td>
-</tr>
-<tr>
-<td>Autoscroll activation</td>
-<td>The pointer after a wheel-click, before choosing a scroll direction</td>
-</tr>
-<tr>
-<td>Autoscroll arrows</td>
-<td>All eight scrolling directions</td>
-</tr>
-<tr>
-<td>Selection arrows</td>
-<td>Selecting rows, columns, or an entire table</td>
-</tr>
-<tr>
-<td>Cell selection</td>
-<td>The cross over cells and when selecting ranges</td>
-</tr>
-<tr>
-<td>Margin selection</td>
-<td>Selecting text from the left page margin</td>
-</tr>
-<tr>
-<td>Vertical text input</td>
-<td>The horizontal mouse pointer in areas with vertical text</td>
-</tr>
-</tbody>
-</table>
-<p>At the start of autoscroll, the pointer indicates vertical, horizontal, or both axes. Direction arrows use <strong>Alternate select</strong> (<code>Up</code>) from the Windows scheme, rotated to match the scrolling direction. Selection arrows use the same role. Transforms account for the pointer hotspot, and animated pointers retain their frame order and timing.</p>
-<p>The interface is available in English, Russian, Spanish, German, Brazilian Portuguese, and Simplified Chinese.</p>
-<h3>Limitations</h3>
-<ul>
-<li>Replacement applies to recognized pointers displayed through Windows cursor APIs. The application controls whether autoscroll is available, its speed, and its direction.</li>
-<li>Excel and Firefox draw their stationary autoscroll markers separately. These markers keep their original appearance.</li>
-<li>Monochrome pointers that invert the background retain their original pixel rendering without smoothing.</li>
-<li>Each mod load creates at most 128 replacement instances per process. Returning to a previously used scheme or smoothing setting reuses matching instances. When full, requests that need a new instance use the application's original pointer.</li>
-<li>After disabling, the application restores its pointer at its next cursor update, usually the next mouse move. Replacement cursor handles remain allocated until the process exits so that pointers still used by Windows stay valid.</li>
-</ul>
-<h2>Platforms</h2>
-<p>Requires Windows 11. Runtime checks cover x86 and x64 processes on Windows 11 x64 with Windhawk 1.7.3. ARM64 has been compiled without a runtime check. Microsoft 365 and Qt WebEngine have not been verified.</p>
-<h3>Compatibility</h3>
-<p>Some of this mod's features may overlap with the following mods:</p>
-<ul>
-<li><a href="https://windhawk.net/mods/chromium-cursor-remap">Chromium Cursor Remap</a> — additional cursor replacement in Chromium and Electron.</li>
-<li><a href="https://windhawk.net/mods/cursor-override">Cursor Override</a> — additional cursor replacement using <code>.cur</code> and <code>.ani</code> files.</li>
-</ul>
-<p>Do not use multiple mods to replace the same cursors in the same application: the final cursor appearance may depend on the order in which replacements are applied.</p>
-<h2>Usage</h2>
-<p>Select a pointer scheme in Windows, then open the mod's <strong>Settings</strong>. <strong>Applications and processes</strong> selects the application families, and <strong>Pointer types</strong> selects the shapes to replace. Both must be enabled for a replacement to apply.</p>
-<table>
-<thead>
-<tr>
-<th>Family</th>
-<th>Coverage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows</td>
-<td>Native Windows pointers, standard controls, and Windows Forms</td>
-</tr>
-<tr>
-<td>Office</td>
-<td>Desktop Word, Excel, PowerPoint, and classic Outlook</td>
-</tr>
-<tr>
-<td>Chromium</td>
-<td>Chrome, Edge, Electron, and compatible embedded browsers</td>
-</tr>
-<tr>
-<td>Gecko</td>
-<td>Firefox and compatible apps: cell selection, resizing, and vertical text</td>
-</tr>
-<tr>
-<td>Qt</td>
-<td>Panel splitters in applications with a Qt interface</td>
-</tr>
-</tbody>
-</table>
-<p>Under <strong>Application exclusions</strong>, below the family switches, add one executable name or full path per row. A name matches any installation of that executable; a full path matches one location.</p>
-<p><strong>Smoothing</strong> has separate switches for <strong>Autoscroll activation</strong>, <strong>Autoscroll arrows</strong>, and <strong>Selection arrows</strong>. Autoscroll smoothing covers all eight directions.</p>
-<h2>Links</h2>
-<ul>
-<li><a href="https://github.com/CTravkin/DSN_Windhawk_Mods/tree/main/Cursor_Scheme_Extension">Cursor Scheme Extension on GitHub</a></li>
-<li><a href="https://github.com/CTravkin/DSN_Windhawk_Mods/blob/main/README.md">DSN Windhawk Mods</a></li>
-</ul>
-]]></content>
-        <author>
-            <name>CTravkin</name>
-            <uri>https://github.com/CTravkin</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Taskbar Mini Folders 1.0.0]]></title>
-        <id>https://windhawk.net/mods/taskbar-mini-folders#eaa9c4896ccdf27e00645fbdc9ef8dcc2958b9aa</id>
-        <link href="https://windhawk.net/mods/taskbar-mini-folders"/>
-        <updated>2026-11-20T03:01:54.000Z</updated>
-        <content type="html"><![CDATA[<h1>Taskbar Mini Folders</h1>
-<p>Adds mini folders to the Windows 11 taskbar, like the app folders on a phone.
-Each mini folder is a small tile that shows the first four icons inside it.
-Click the tile and a panel opens above the taskbar with everything in the
-folder. Click an icon to launch it.</p>
-<p>Use it to group apps (Work, Games, Tools) and keep the taskbar short.</p>
-<p><img src="https://i.imgur.com/h4lhXaY.png" alt="An open mini folder with its apps"></p>
-<p><img src="https://i.imgur.com/8uHZ4Qf.png" alt="Mini folders in the taskbar and an empty mini folder"></p>
-<h2>How it works</h2>
-<p>Every mini folder is a real folder on disk. By default it is
-<code>%USERPROFILE%\TaskbarFolders\&lt;folder name&gt;</code>. The mod creates the folder the
-first time you use <strong>+ Add...</strong> or <strong>Open folder</strong> in it, not before.
-Whatever is in that folder shows up in the mini folder: shortcuts, programs,
-files and other folders. Hidden and system files are skipped. Items are sorted
-by name.</p>
-<h2>Using it</h2>
+        <title type="html"><![CDATA[Vision 1.2026.2511]]></title>
+        <id>https://windhawk.net/mods/vision#5ce5f9a25284e88fcdd6ff5864cb8441095b0341</id>
+        <link href="https://windhawk.net/mods/vision"/>
+        <updated>2026-11-27T06:00:07.000Z</updated>
+        <content type="html"><![CDATA[<h1>Vision</h1>
+<p><img src="https://raw.githubusercontent.com/k-ashix/ashix-windhawk-mods/main/Vision/Vision.png" alt="Vision Screenshot"></p>
+<p>Control any window's <strong>opacity</strong>, <strong>always-on-top</strong> state, and <strong>per-window dimming overlay</strong> directly from its title bar.</p>
 <table>
 <thead>
 <tr>
 <th>Action</th>
-<th>Result</th>
+<th>Default Trigger</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Click a mini folder</td>
-<td>Opens its panel. Click it again, press Esc or click elsewhere to close the panel</td>
+<td>Adjust Opacity</td>
+<td><code>Alt + Shift + Wheel</code> over title bar</td>
+<td>25%–100%, 5% step</td>
 </tr>
 <tr>
-<td>Click an icon in the panel</td>
-<td>Opens the app, file or folder</td>
+<td>Toggle Saved App Opacity</td>
+<td><code>Alt + Shift + Double-Click</code> over title bar</td>
+<td>Toggles ON/OFF without erasing saved app opacity</td>
 </tr>
 <tr>
-<td>Right-click an icon</td>
-<td>Open, Open file location, Remove from this folder (Delete for real files and folders)</td>
+<td>Toggle Pin (Always on Top)</td>
+<td><code>Alt + Shift + Middle-Click</code> over title bar</td>
+<td>Pins or unpins the window</td>
 </tr>
 <tr>
-<td><strong>+ Add...</strong></td>
-<td>Pick apps or files. A shortcut to each one is created in the folder</td>
+<td>Adjust Dim</td>
+<td><code>Ctrl + Wheel</code> over title bar</td>
+<td>Soft per-window overlay, never 100% pitch black</td>
 </tr>
 <tr>
-<td><strong>Open folder</strong></td>
-<td>Opens the folder in Explorer, so you can drag items in, rename or delete them</td>
+<td>Toggle Saved App Dim</td>
+<td><code>Ctrl + Double-Click</code> over title bar</td>
+<td>Toggles ON/OFF without erasing saved app dim</td>
+</tr>
+<tr>
+<td>Header <code>%</code> Button &amp; Slider</td>
+<td>Optional (disabled by default)</td>
+<td>Minimal <code>%</code> indicator in the title bar; hover reveals a dim slider</td>
 </tr>
 </tbody>
 </table>
-<p>&quot;Remove from this folder&quot; sends a shortcut to the Recycle Bin without asking.
-For a real file or folder (not a shortcut) the menu item is called &quot;Delete&quot;,
-because it removes the real item: it goes to the Recycle Bin, and Windows may
-ask you to confirm first. On a drive without a Recycle Bin (for example a
-network drive) the item is deleted permanently, and Windows asks first.</p>
-<p>The file picker of <strong>+ Add...</strong> starts in the Start menu programs folder, where
-most installed apps have a shortcut.</p>
+<h3>Highlights</h3>
+<ul>
+<li><strong>Per-Window Dimming Relative to Your Current Monitor Brightness:</strong> Dim any individual window (such as a bright PDF, browser, or editor) without changing your monitor's hardware brightness, gamma ramp, or OSD settings. Whatever brightness your display is set to is always treated as 100%.</li>
+<li><strong>Saved Per-App Dim &amp; Opacity Levels:</strong> Each app remembers your last dim and opacity percentages per Windows user, so you can toggle them back on with a quick title-bar click.</li>
+<li><strong>Optional Title-Bar <code>%</code> Control:</strong> Enable a compact <code>%</code> badge in the active window's title bar that reveals a smooth slider on hover for one-handed dim adjustments.</li>
+<li><strong>Screenshot &amp; Recording Control:</strong> Choose whether dim overlays, reduced opacity, and the title-bar slider are hidden from or included in screenshots and screen recordings (<code>exclude_all</code>, <code>show_dim</code>, <code>show_controls</code>, <code>show_all</code>).</li>
+<li><strong>Clean Resize &amp; Window Tracking:</strong> Dim overlays follow window moves and resizes smoothly without flashing black or white strips, and never interfere with monitor control utilities or per-pixel transparent windows.</li>
+<li><strong>Standalone Tool Mod:</strong> Runs in its own dedicated Windhawk tool process (compatible with both Windhawk 1.7.3 and 2.0) and restores all modified windows when disabled or unloaded.</li>
+</ul>
+<h3>How Vision Differs from Similar Mods</h3>
+<ul>
+<li><strong>Background Dimmer</strong> dims all <em>inactive</em> windows behind the active one using a global backdrop. Vision instead lets you manually dim <em>any specific window</em> (including the active one you are reading) to its own level with the scroll wheel or title-bar slider, and remembers that dim level per app.</li>
+<li><strong>Scroll Window Opacity</strong> adjusts window transparency with a modifier + scroll wheel, but does not offer a per-window dimming overlay, saved per-app dim/opacity quick-toggles, or a title-bar <code>%</code> slider.</li>
+<li><strong>Middle Click Minimize</strong> and <strong>Always On Top Windows</strong> focus on window state actions (minimize/close/pin via click or hotkey) without per-window dimming or opacity controls.</li>
+<li><strong>Window Rules</strong> applies static rules automatically when matching windows open, whereas Vision is designed for instant, interactive on-the-fly adjustments directly from any title bar.</li>
+</ul>
+]]></content>
+        <author>
+            <name>Ashix</name>
+            <uri>https://github.com/k-ashix</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Devices and drives in Explorer Home 1.0.0]]></title>
+        <id>https://windhawk.net/mods/explorer-home-devices#838750ce7cafc0833bedac28633aa4b389c22201</id>
+        <link href="https://windhawk.net/mods/explorer-home-devices"/>
+        <updated>2026-11-27T05:03:40.000Z</updated>
+        <content type="html"><![CDATA[<h1>Devices and drives in the File Explorer Home folder</h1>
+<p><img src="https://raw.githubusercontent.com/crazyboyybs/assets/refs/heads/main/Dispositivos%20e%20unidades.png" alt="Devices and drives in Explorer Home"></p>
+<p>The This PC folder in Windows File Explorer shows your drives, this mod
+brings that to the Home folder. It adds a native <strong>Devices and drives</strong>
+section right after <strong>Quick access</strong>, built with the same WinUI the rest of
+the Home page already uses.</p>
+<p><strong>What you get:</strong></p>
+<ul>
+<li>Drive cards with the real name, icon, type and free-space bar, taken
+straight from the Shell, the same info you'd see in &quot;This PC&quot;.</li>
+<li>Double-click a card to open the drive in the current tab; drag one out to
+create a shortcut, or drag files onto it to copy or move them there.</li>
+<li>Right-click a single file-system drive (or use your keyboard's context-menu
+shortcut) for Explorer's native Windows 11 menu. Hold Shift while
+right-clicking to open the extended classic menu; multiple selections and
+virtual devices automatically use the classic menu too.</li>
+<li>Rename works inline, just like a normal folder.</li>
+<li>The section header can collapse the whole grid if you want it out of the
+way.</li>
+<li>The grid keeps itself up to date automatically whenever a drive is plugged
+in, removed, or its free space changes.</li>
+</ul>
+<p><strong>A quick technical note:</strong> the mod reads Explorer's own WinUI page and
+inserts the section directly into it, without relying on XAML Diagnostics,
+so it plays nicely alongside other Explorer styling mods that need that
+facility for themselves. One consequence: a File Explorer window already
+sitting on Home when the mod is enabled may not pick up the section right
+away. Navigate away and back to Home (or open a new tab) to refresh it;
+windows opened after enabling the mod are unaffected. On some older
+Windows 11 builds, the section shows up at the bottom of Home instead of
+right after Quick access, and the native selection rectangle doesn't draw
+over it during a drag-select — everything else (drive cards, drag and
+drop, context menu, rename) works the same. The modern context menu is
+obtained and rendered through Explorer's own WinRT contracts, including its
+native commands, ordering and icons. If those contracts aren't available,
+or the selection can't be represented as one real file-system item, the mod
+falls back to the complete classic Shell menu.</p>
+<hr>
+<h1>Dispositivos e unidades na pasta Início do Explorador de Arquivos</h1>
+<p>A pasta Este Computador do Explorador de Arquivos do Windows mostra suas
+unidades, esse mod traz isso para a pasta Início. Ele adiciona uma seção
+nativa de <strong>Dispositivos e unidades</strong> logo depois do <strong>Acesso rápido</strong>,
+construída com o mesmo WinUI que o resto da Página Inicial já usa.</p>
+<p><strong>O que você ganha:</strong></p>
+<ul>
+<li>Cards de unidade com nome, ícone, tipo e barra de espaço livre reais,
+vindos direto do Shell, a mesma informação que você veria em &quot;Este
+Computador&quot;.</li>
+<li>Dê duplo clique num card pra abrir a unidade na aba atual; arraste um card
+pra fora pra criar um atalho, ou arraste arquivos pra dentro dele pra
+copiar ou mover.</li>
+<li>Clique com o botão direito numa única unidade do sistema de arquivos (ou
+use o atalho de menu de contexto do teclado) pra abrir o menu nativo do
+Windows 11 do Explorador. Segure Shift durante o clique direito pra abrir o
+menu clássico estendido; seleções múltiplas e dispositivos virtuais também
+usam o menu clássico automaticamente.</li>
+<li>Renomear funciona direto ali, igual numa pasta comum.</li>
+<li>O cabeçalho da seção pode recolher a grade inteira se você quiser tirá-la
+do caminho.</li>
+<li>A grade se atualiza sozinha sempre que uma unidade é conectada, removida,
+ou o espaço livre muda.</li>
+</ul>
+<p><strong>Um detalhe técnico rápido:</strong> o mod lê a própria página WinUI do Explorador
+e insere a seção diretamente nela, sem depender do XAML Diagnostics, então
+ele convive bem com outros mods de estilo do Explorador que precisam desse
+recurso pra si. Uma consequência disso: uma janela do Explorador de Arquivos
+que já esteja aberta na pasta Início quando o mod for ativado pode não
+mostrar a seção na hora. Saia da pasta Início e volte (ou abra uma nova
+aba) pra atualizar; janelas abertas depois de ativar o mod não têm esse
+problema. Em algumas builds mais antigas do Windows 11, a seção aparece no
+final da Página Inicial em vez de logo depois do Acesso rápido, e o
+retângulo de seleção nativo não é desenhado sobre ela durante uma seleção
+por arraste — o resto (cards de unidade, arrastar e soltar, menu de
+contexto, renomear) funciona igual. O menu moderno é obtido e renderizado
+pelos próprios contratos WinRT do Explorador, inclusive com comandos, ordem
+e ícones nativos. Se esses contratos não estiverem disponíveis, ou a seleção
+não puder ser representada como um único item real do sistema de arquivos, o
+mod volta automaticamente ao menu clássico completo do Shell.</p>
+<hr>
+<h1>Dispositivos y unidades en la carpeta Inicio del Explorador de archivos</h1>
+<p>La carpeta Este equipo del Explorador de archivos de Windows muestra tus
+unidades, este mod trae eso a la carpeta Inicio. Agrega una sección nativa
+de <strong>Dispositivos y unidades</strong> justo después de <strong>Acceso rápido</strong>,
+construida con el mismo WinUI que ya usa el resto de la página de Inicio.</p>
+<p><strong>Qué obtienes:</strong></p>
+<ul>
+<li>Tarjetas de unidad con el nombre, ícono, tipo y barra de espacio libre
+reales, tomados directamente del Shell, la misma información que verías
+en &quot;Equipo&quot;.</li>
+<li>Haz doble clic en una tarjeta para abrir la unidad en la pestaña actual;
+arrastra una hacia afuera para crear un acceso directo, o arrastra
+archivos sobre ella para copiarlos o moverlos.</li>
+<li>Haz clic derecho en una sola unidad del sistema de archivos (o usa el atajo
+de menú contextual del teclado) para abrir el menú nativo de Windows 11 del
+Explorador. Mantén Shift durante el clic derecho para abrir el menú clásico
+extendido; las selecciones múltiples y los dispositivos virtuales también
+usan automáticamente el menú clásico.</li>
+<li>Cambiar el nombre funciona en línea, igual que en una carpeta normal.</li>
+<li>El encabezado de la sección puede contraer toda la cuadrícula si quieres
+quitarla de en medio.</li>
+<li>La cuadrícula se actualiza sola cada vez que se conecta o quita una
+unidad, o cambia el espacio libre.</li>
+</ul>
+<p><strong>Un detalle técnico rápido:</strong> el mod lee la propia página WinUI del
+Explorador e inserta la sección directamente en ella, sin depender de XAML
+Diagnostics, así que convive bien con otros mods de estilo del Explorador
+que necesitan ese recurso para sí mismos. Una consecuencia de esto: una
+ventana del Explorador de archivos que ya esté abierta en la carpeta Inicio
+cuando se active el mod puede no mostrar la sección de inmediato. Sal de
+Inicio y vuelve a entrar (o abre una pestaña nueva) para actualizarla; las
+ventanas abiertas después de activar el mod no tienen este problema. En
+algunas builds más antiguas de Windows 11, la sección aparece al final de
+Inicio en lugar de justo después de Acceso rápido, y el rectángulo de
+selección nativo no se dibuja sobre ella durante una selección por
+arrastre — el resto (tarjetas de unidad, arrastrar y soltar, menú
+contextual, cambiar nombre) funciona igual. El menú moderno se obtiene y se
+renderiza mediante los propios contratos WinRT del Explorador, incluidos sus
+comandos, orden e iconos nativos. Si esos contratos no están disponibles, o
+la selección no se puede representar como un único elemento real del sistema
+de archivos, el mod vuelve automáticamente al menú clásico completo del
+Shell.</p>
+]]></content>
+        <author>
+            <name>crazyboyybs</name>
+            <uri>https://github.com/crazyboyybs</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Taskbar Edge Stop 1.0]]></title>
+        <id>https://windhawk.net/mods/taskbar-edge-stop#620480ee3ce4410815b02ebf9301c629e7a63fec</id>
+        <link href="https://windhawk.net/mods/taskbar-edge-stop"/>
+        <updated>2026-11-27T05:03:35.000Z</updated>
+        <content type="html"><![CDATA[<h1>Taskbar Edge Stop</h1>
+<p><strong>The problem:</strong> with two monitors, you move the mouse to the taskbar and it slips
+right past it onto the other monitor. With a small or auto-hidden taskbar this
+happens all the time.</p>
+<p><strong>The fix:</strong> the taskbar becomes a &quot;stopper&quot;. The mouse stops on it, so you can
+click your icons without overshooting.</p>
+<p><img src="https://raw.githubusercontent.com/voide61/taskbar-edge-stop/main/demo.gif" alt="Demo"></p>
+<h2>How it works</h2>
+<ul>
+<li>Moving to the taskbar, the mouse <strong>stops on it</strong> (and an auto-hidden taskbar shows up).</li>
+<li>Want to go to the other monitor? <strong>Keep pushing</strong> the mouse a little more.</li>
+<li>Over the taskbar <strong>icons</strong>, you can make it <strong>never cross</strong>, no matter how hard
+you push (option below). Cross through the empty part of the taskbar instead.</li>
+<li>Coming from the other monitor straight onto the taskbar, the way is <strong>free</strong>.</li>
+<li>Moving <strong>sideways</strong> into the taskbar strip of a neighboring monitor (monitors side
+by side) is also stopped, so the mouse doesn't slide onto the wrong taskbar.</li>
+<li>Nothing changes anywhere else on the screen.</li>
+</ul>
+<h2>Works with</h2>
+<ul>
+<li>Monitors stacked vertically or side by side, any size (ultrawide included).</li>
+<li>Small taskbars (other Windhawk mods), auto-hide, and taskbars on any screen edge.</li>
+<li>Plugging in, unplugging or rearranging monitors, and Explorer restarts: the mod
+adapts within a second.</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>Injected mouse input is ignored, so the mod does nothing in Remote Desktop
+sessions, in virtual machines with guest tools, and with some tablets or
+touchpads that report their movement as injected input.</li>
+<li>Other mods that also act on the mouse crossing between monitors with a low-level
+mouse hook (for example <em>Proportional cursor between monitors</em>) may conflict:
+whichever hook was installed last decides.</li>
+</ul>
+<h2>Settings</h2>
+<ul>
+<li><strong>Extra height above the taskbar:</strong> increase it if the mouse still slips through.
+It follows each monitor's scale, so it looks the same on a 100% and a 200% monitor.</li>
+<li><strong>Push force to cross:</strong> how much to push against the taskbar to cross (0 = never).</li>
+<li><strong>Never cross over the icons:</strong> over the app icons, Start and the system tray icons,
+the mouse never crosses, even when pushing.</li>
+</ul>
+]]></content>
+        <author>
+            <name>voide61</name>
+            <uri>https://github.com/voide61</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Wheel Context Menu 0.1]]></title>
+        <id>https://windhawk.net/mods/wheel-context-menu#82bc0257b0da0d01b8e7c336cc0ff5531c2c979b</id>
+        <link href="https://windhawk.net/mods/wheel-context-menu"/>
+        <updated>2026-11-27T05:03:30.000Z</updated>
+        <content type="html"><![CDATA[<h1>Wheel Context Menu</h1>
+<p>Shows classic (Win32) context menus as a half wheel around the cursor. The
+item on the centre line, or the one under the cursor, is highlighted; items
+fade out toward the top and bottom of the arc.</p>
+<p><img src="https://raw.githubusercontent.com/JohhannasReyn/Wheel-Context-Menu/main/images/demo.gif" alt="Wheel Context Menu in use"></p>
+<h2>Using it</h2>
+<p><strong>Mouse</strong></p>
+<ul>
+<li>Scroll inside the wheel to step one item. Scroll outside it to dismiss.</li>
+<li>Optional &quot;Tilt to spin&quot;: move above or below the centre band to spin the
+wheel, faster the further you go.</li>
+<li>Click a label to choose it. A click on empty space inside the wheel
+chooses the highlighted item by default; that can be changed to do
+nothing, close the menu, or go back out of a submenu. Click outside to
+dismiss.</li>
+<li>Press and pull a label to rearrange. The order is remembered for that menu.</li>
+<li>Right-click inside the wheel for the standard menu.</li>
+</ul>
+<p><strong>Keyboard</strong></p>
+<ul>
+<li>Type a name to jump to it. Up / Down step, Left / Right jump to the ends.</li>
+<li>Enter chooses, Backspace goes back, Esc closes.</li>
+</ul>
+<p><strong>Shape</strong> can be changed from the wheel to a straight menu that keeps every
+feature: &quot;List&quot; is a regular box, &quot;Sliding list&quot; is the wheel straightened
+into a column.</p>
+<p><strong>Last choice note</strong> (off by default) shows what you last chose from a
+wheel, and how long ago, as a greyed entry at the top or bottom of the list
+or in the centre of the wheel. Handy after an accidental click.</p>
+<p><strong>Menu options</strong> (last entry in the menu) changes most settings on the
+spot. A change made there holds until you next change the mod's settings in
+Windhawk, which then take over again.</p>
+<h2>Windows 11</h2>
+<p>Explorer's modern context menu is not a classic menu, so the wheel only
+appears where the classic one would: after &quot;Show more options&quot;, with
+Shift + right-click, or everywhere if you restore the classic menu (for
+example with the &quot;Classic context menu on Windows 11&quot; mod).</p>
+<h2>Other programs</h2>
+<p>Only <code>explorer.exe</code> is targeted by default. Any program that shows classic
+menus through <code>TrackPopupMenu</code> can be added from the mod's Advanced tab.
+Programs that draw their own menus (browsers, Office, most Electron apps)
+are not affected. A program that is not per-monitor DPI aware may misjudge
+clicks on a scaled display.</p>
+<h2>Other context menu mods</h2>
+<p>Mods that replace the same menus, such as Custom Cached Context Menu, hook
+the same functions. With two of them enabled, whichever hook runs first
+takes the menu, so use one at a time.</p>
+<h2>Known limits</h2>
+<ul>
+<li>A menu whose top level has owner-drawn items with no readable text is
+shown as the standard menu instead. Inside a submenu such items show as
+&quot;Item N&quot;.</li>
+<li>Menu icons are not shown.</li>
+<li>Stacked submenus can run past the screen edge when a menu is deep.</li>
+</ul>
+]]></content>
+        <author>
+            <name>Johhannas Reyn</name>
+            <uri>https://github.com/JohhannasReyn</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Aleph - Infinite Window Canvas 1.8.0]]></title>
+        <id>https://windhawk.net/mods/aleph-canvas#16f5f613eb52da98b99f6822accd8eca90cb20f1</id>
+        <link href="https://windhawk.net/mods/aleph-canvas"/>
+        <updated>2026-11-27T05:03:25.000Z</updated>
+        <content type="html"><![CDATA[<h1>Aleph - Infinite Window Canvas</h1>
+<p>Aleph presents eligible application windows on a navigable canvas. Live
+windows use DWM thumbnails; minimized and other-desktop windows use icon cards.
+Drag cards to arrange them without moving the real desktop windows.</p>
+<p><a href="https://imgur.com/a/qpERhgR"><img src="https://raw.githubusercontent.com/CYoJkoY/Yoko-Windhawk-Mods/main/mods/aleph-canvas/doc/assets/aleph-canvas-demo.gif" alt="Aleph Canvas demo"></a></p>
+<h2>Controls</h2>
+<ul>
+<li><code>Ctrl+Alt+Shift+F12</code>: toggle the canvas. Leave the setting empty to disable
+the hotkey. If the hotkey does
+nothing, another program may already use it; pick a different combination.</li>
+<li>Mouse wheel: zoom around the pointer.</li>
+<li>Alt+wheel over a stacked card: cycle the stack; plain wheel still zooms.</li>
+<li>The card header carries up to three buttons: pin, group (windows of the same
+application only), and close. Hovering a button shows its localized label.</li>
+<li>Group joins the windows of one application into a stack; pressing it again
+splits the stack into a row. The grouped state is saved with the layout.</li>
+<li>Hold Alt and drag a card onto another one to make a stack of your own, even
+across different applications; a drop only counts when the cards overlap
+solidly. Hold Alt and drag a member out to release just that window. A plain
+drop never groups anything. Custom stacks are saved with the layout.</li>
+<li>Close sends <code>WM_CLOSE</code> to the real window, so the application closes; the
+card leaves the canvas once the next scan reports the window gone.</li>
+<li>Middle mouse drag: pan the canvas.</li>
+<li>Hold Space and drag empty canvas: pan.</li>
+<li>Drag a card: arrange it; nearby edges snap into alignment.</li>
+<li>Shift+click a stacked card: bring the next window of the same app to the front.</li>
+<li>Double-click a card or press Enter: focus the window; for an other-desktop window, first try to move it here.</li>
+<li>Tab / Shift+Tab: select a card; arrow keys pan; Home fits all cards; Escape hides the canvas.</li>
+<li>Click or drag the minimap: navigate the canvas.</li>
+<li>The canvas hides when another window takes input focus.</li>
+</ul>
+<h2>Notes</h2>
+<p>Card positions are saved in the Windhawk mod storage directory as
+<code>layout-&lt;user-SID&gt;.json</code>.
+Canvas coordinates use physical pixels relative to the virtual desktop origin.
+Card badges and the empty-canvas hint follow the interface language setting.
+<code>Auto</code> uses the system UI language and falls back to English when that language
+is not one of the thirteen supported ones.
+Icon cards ask the shell for the largest available icon (256 px when the jumbo
+image list exists) and fall back to smaller lists, then to the window icon.
+Arranging cards never moves real application windows. Activating an
+other-desktop card asks the documented <code>IVirtualDesktopManager</code> interface to
+move that window onto the desktop displaying the canvas. Windows can reject
+requests for windows owned by another process. A failed move is logged and
+the mod still attempts normal foreground activation, which can also fail.</p>
+]]></content>
+        <author>
+            <name>CYoJkoY</name>
+            <uri>https://github.com/CYoJkoY</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Taskbar Badge Control 1.0.0]]></title>
+        <id>https://windhawk.net/mods/taskbar-badge-control#c7a91b1ab37fdedb5a2859d187e6ece9ac09b037</id>
+        <link href="https://windhawk.net/mods/taskbar-badge-control"/>
+        <updated>2026-11-27T04:01:57.000Z</updated>
+        <content type="html"><![CDATA[<h1>Taskbar Badge Control</h1>
+<p>This mod lets you show or hide taskbar badges per application, instead of
+turning them all on or off through Windows. It's useful for apps that don't
+offer their own setting to disable taskbar badges.</p>
+<p><img src="https://i.imgur.com/x45aKkt.jpeg" alt="Taskbar before and after selectively hiding application badges"></p>
+<h2>Usage</h2>
+<p>Use the filtering mode to <strong>show badges by default</strong> or <strong>hide badges by
+default</strong>, then populate <strong>Applications</strong> with the apps that should behave
+differently.</p>
+<p>Add process names (<code>process.exe</code>), full executable paths, or AppUserModelIDs
+under <strong>Applications</strong>. Entries are case-insensitive exact matches; wildcards
+are not supported.</p>
+<h2>Required Windows setting</h2>
+<p>Enable <strong>Show badges on taskbar apps</strong> under <strong>Settings → Personalization →
+Taskbar → Taskbar behaviors</strong>.</p>
+<p>If this setting is disabled, Windows hides all taskbar badges regardless of the
+mod's rules. The mod cannot show badges for allowed applications while the
+global setting is off.</p>
+<p><img src="https://i.imgur.com/dBVwbWE.jpeg" alt="Windows taskbar settings with Show badges on taskbar apps enabled"></p>
+<h2>Limits</h2>
+<ul>
+<li>Only the native Windows 11 taskbar is supported (x64 and ARM64).</li>
+<li>Badges drawn into an application's base icon cannot be removed.</li>
+<li>Applications whose identity cannot be resolved keep their badges.</li>
+</ul>
+]]></content>
+        <author>
+            <name>mobeigi</name>
+            <uri>https://github.com/mobeigi</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Native Windows Screen Recorder 2.0.4]]></title>
+        <id>https://windhawk.net/mods/native-screen-recorder#9a25265d3328d9b1fe994490d1a4e8e7677c3d15</id>
+        <link href="https://windhawk.net/mods/native-screen-recorder"/>
+        <updated>2026-11-27T04:01:52.000Z</updated>
+        <content type="html"><![CDATA[<h1>Native Windows Screen Recorder</h1>
+<blockquote>
+<p>ℹ️ <strong>Compatibility Note (Smart App Control) / Lưu ý tương thích:</strong></p>
+<ul>
+<li><strong>🌐 English:</strong> Like all Windhawk mods, this mod is compiled locally into an unsigned <code>.dll</code> file. It runs in a dedicated Windhawk tool process. If Windows <strong>Smart App Control</strong> is active on your PC, Windows will block the compiled <code>.dll</code> and the mod will not load.</li>
+<li><strong>🇻🇳 Tiếng Việt:</strong> Giống như mọi bản mod trên Windhawk, mod này được biên dịch cục bộ thành tệp <code>.dll</code> không có chữ ký số và chạy trong một tiến trình công cụ độc lập của Windhawk. Nếu máy đang bật <strong>Smart App Control (Kiểm soát Ứng dụng Thông minh)</strong>, Windows sẽ chặn tệp <code>.dll</code> này khiến mod không thể hoạt động.</li>
+</ul>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/caotu2k5/windhawk-mods-resources/main/nativerecord/main.jpg" alt="Native Windows Screen Recorder Preview (Floating Pill Bar)"></p>
+<p><em>Floating Pill Bar (13 Themes &amp; Windows 11 Blur / Liquid Glass)</em></p>
+<p><img src="https://raw.githubusercontent.com/caotu2k5/windhawk-mods-resources/main/nativerecord/record.jpg" alt="Native Windows Screen Recorder Preview (Active Recording HUD)"></p>
+<p><em>Active Recording HUD</em></p>
+<p><img src="https://raw.githubusercontent.com/caotu2k5/windhawk-mods-resources/main/nativerecord/drawscreen.jpg" alt="Native Windows Screen Recorder Preview (Live Screen Drawing)"></p>
+<p><em>Live Screen Drawing / Annotation Toolbar &amp; Esc Hint Pill</em></p>
+<p><img src="https://raw.githubusercontent.com/caotu2k5/windhawk-mods-resources/main/nativerecord/settingsui.jpg" alt="Native Windows Screen Recorder Preview (WinUI 3 Settings Window)"></p>
+<p><em>Dedicated WinUI 3 Settings Window (Hosted in <code>windhawk.exe</code>)</em></p>
+<p><img src="https://raw.githubusercontent.com/caotu2k5/windhawk-mods-resources/main/nativerecord/monitor.jpg" alt="Native Windows Screen Recorder Preview (Multi-Monitor Layout Arranger)"></p>
+<p><em>Interactive Multi-Monitor Custom Layout Arranger</em></p>
+<hr>
+<h2>🌐 English</h2>
+<p>A lightweight, native Windows screen recorder running in an isolated Windhawk tool process (<code>windhawk.exe</code> / <code>windhawk-mod.exe</code> — never injecting into <code>explorer.exe</code>) with <strong>13 built-in visual themes</strong>, a <strong>dedicated WinUI 3 Settings window</strong>, <strong>hardware-capped resolution &amp; active refresh-rate FPS selector</strong>, <strong>live screen drawing/annotation toolbar</strong>, <strong>multi-monitor custom layout arranger</strong>, and <strong>21-language support</strong> — no third-party apps required.</p>
+<h3>Key Features</h3>
+<ul>
+<li>
+<p><strong>Dedicated WinUI 3 Settings Window &amp; Isolated Tool Process:</strong></p>
+<ul>
+<li>The entire recorder runs in its own isolated Windhawk tool process (<code>windhawk.exe</code> / <code>windhawk-mod.exe</code>), keeping <code>explorer.exe</code> completely untouched. Clicking <code>⚙️</code> on the floating pill bar opens the built-in <strong>Windows 11 Settings–style</strong> window for themes, resolution, FPS, monitor layout, audio, and language.</li>
+<li>Built end-to-end with Direct2D WinUI 3 controls: grouped SettingsExpander cards, WinUI 3 ComboBox flyouts with vertical accent indicators, and a native-style WinUI 3 HSV ColorPicker with 16 Fluent swatches. Changes apply immediately to the live pill bar.</li>
+</ul>
+</li>
+<li>
+<p><strong>13 Built-In Themes &amp; Full Visual Customization:</strong></p>
+<ul>
+<li>Defaults to <strong>Windows 11 Blur</strong> (authentic frosted Fluent Acrylic), with <strong>Liquid Glass</strong> (refractive 3D glass pill) and 11 more curated themes (<strong>Windows 11 Mica</strong>, <strong>Fluent Solid</strong>, <strong>Classic Win11</strong>, <strong>Midnight OLED</strong>, <strong>Nord Frost</strong>, <strong>Catppuccin Mocha</strong>, <strong>Dracula Velvet</strong>, <strong>Rosé Pine</strong>, <strong>Emerald Slate</strong>, <strong>Warm Paper</strong>, and <strong>Custom</strong>).</li>
+<li>Customize <strong>Background Color</strong>, <strong>Border Color</strong>, and <strong>Corner Radius (<code>0–28 px</code>)</strong> across the pill bar, drawing toolbar, and layout arranger, excluded from recorded video via <code>WDA_EXCLUDEFROMCAPTURE</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Hardware-Capped Resolution &amp; Active Refresh-Rate FPS:</strong></p>
+<ul>
+<li>Automatically detects each monitor's native hardware resolution and active Windows display refresh rate (<code>ENUM_CURRENT_SETTINGS</code>), only exposing presets up to your current hardware limits (e.g., 60 Hz caps at 60 FPS; 144 Hz unlocks up to 144 FPS; 240 Hz unlocks up to 240 FPS) with automatic GPU H.264 encoder step-down fallback.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multi-Monitor Capture &amp; Interactive Custom Layout Arranger:</strong></p>
+<ul>
+<li>Record the monitor under your cursor, pick any individual monitor (<code>Monitor 1</code>, <code>Monitor 2</code>, ...), record <strong>All Monitors Combined</strong>, or open the <strong>Custom Monitor Layout</strong> arranger directly from Settings to drag, snap, resize, and toggle monitors into any corner or Picture-in-Picture layout.</li>
+</ul>
+</li>
+<li>
+<p><strong>Live Screen Drawing / Annotation (<code>✏️</code>), WASAPI Audio &amp; 21 Languages:</strong></p>
+<ul>
+<li>Toggleable from the Idle Pill Bar or Active Recording HUD with <strong>Pen</strong>, <strong>Highlighter</strong>, <strong>Line</strong>, <strong>Arrow</strong>, <strong>Rectangle</strong>, <strong>Ellipse</strong>, <strong>Eraser</strong>, <strong>Mouse Pass-through</strong>, <strong>7 colors</strong>, <strong>3 sizes</strong>, <strong>Undo / Redo</strong>, <strong>Clear All</strong>, and a <code>&quot;Press Esc to exit&quot;</code> hint pill.</li>
+<li>DXGI Desktop Duplication with automatic GDI fallback, Media Foundation H.264 + AAC (192 kbps) direct MP4 encoding, WASAPI System Audio Loopback + Microphone mixing, automatic Explorer reveal on finish, and <strong>21 built-in languages</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3>Default Hotkeys</h3>
+<ul>
+<li><strong>Ctrl + Alt + R:</strong> Open / Close the floating Pill Launcher bar (or Stop if currently recording)</li>
+<li><strong>Ctrl + Alt + S:</strong> Drag-select a custom screen region and start recording</li>
+<li><strong>Ctrl + Alt + P:</strong> Pause / Resume active recording</li>
+<li><strong>Esc:</strong> Exit Live Screen Drawing mode (or cancel region selection)</li>
+</ul>
+<hr>
+<h2>🇻🇳 Tiếng Việt</h2>
+<p>Trình quay màn hình native gọn nhẹ cho Windows chạy trong tiến trình công cụ độc lập của Windhawk (<code>windhawk.exe</code> / <code>windhawk-mod.exe</code>, không can thiệp vào <code>explorer.exe</code>) với <strong>13 chủ đề giao diện</strong>, <strong>cửa sổ Cài đặt WinUI 3 tích hợp</strong>, <strong>tùy chỉnh độ phân giải &amp; FPS giới hạn theo tần số quét thực tế của phần cứng</strong>, <strong>bộ công cụ vẽ trực tiếp lên màn hình khi quay</strong>, <strong>trình tự bố trí đa màn hình trực quan</strong> và <strong>hỗ trợ 21 ngôn ngữ</strong> — không cần cài thêm phần mềm bên thứ 3.</p>
+<h3>Tính năng chính</h3>
+<ul>
+<li>
+<p><strong>Cửa sổ Cài đặt WinUI 3 &amp; Tiến Trình Công Cụ Độc Lập:</strong></p>
+<ul>
+<li>Toàn bộ trình quay màn hình chạy tách biệt hoàn toàn trong tiến trình công cụ của Windhawk (<code>windhawk.exe</code> / <code>windhawk-mod.exe</code>), an toàn tuyệt đối cho <code>explorer.exe</code>. Bấm nút <code>⚙️</code> trên thanh viên thuốc để mở cửa sổ <strong>Cài đặt Quay Màn Hình</strong> phong cách Windows 11.</li>
+<li>Thiết kế đồng bộ chuẩn WinUI 3 với thẻ nhóm SettingsExpander, menu thả xuống ComboBox Flyout có thanh nhấn dọc và bảng chọn màu WinUI 3 ColorPicker 16 ô màu nhanh Fluent — mọi thay đổi áp dụng tức thì lên thanh viên thuốc.</li>
+</ul>
+</li>
+<li>
+<p><strong>13 Chủ Đề Giao Diện &amp; Tùy Chỉnh Màu Sắc, Bo Góc:</strong></p>
+<ul>
+<li>Mặc định <strong>Windows 11 Blur</strong> (Acrylic mờ dịu mắt chuẩn Windows 11), kèm <strong>Liquid Glass</strong> (kính trong suốt khúc xạ 3D) và 11 chủ đề tinh chọn khác (<strong>Windows 11 Mica</strong>, <strong>Fluent Solid</strong>, <strong>Classic Win11</strong>, <strong>Midnight OLED</strong>, <strong>Nord Frost</strong>, <strong>Catppuccin Mocha</strong>, <strong>Dracula Velvet</strong>, <strong>Rosé Pine</strong>, <strong>Emerald Slate</strong>, <strong>Warm Paper</strong> và <strong>Tự tùy chỉnh</strong>).</li>
+<li>Tự do đổi <strong>Màu nền</strong>, <strong>Màu viền</strong> và <strong>Bán kính bo góc (<code>0–28 px</code>)</strong> đồng bộ trên toàn bộ thanh viên thuốc, thanh vẽ và trình bố trí màn hình, tự ẩn khỏi video quay nhờ <code>WDA_EXCLUDEFROMCAPTURE</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Độ Phân Giải &amp; FPS Giới Hạn Thông Minh Theo Phần Cứng:</strong></p>
+<ul>
+<li>Tự động nhận diện độ phân giải gốc và tần số quét Windows đang thiết lập (<code>ENUM_CURRENT_SETTINGS</code>), chỉ mở khóa mức FPS tương ứng (60Hz tối đa 60 FPS; 144Hz mở lên 144 FPS; 240Hz mở lên 240 FPS) kèm cơ chế tự hạ bậc an toàn theo bộ mã hóa H.264 của GPU.</li>
+</ul>
+</li>
+<li>
+<p><strong>Quay Đa Màn Hình &amp; Tự Bố Trí Màn Hình Trực Quan:</strong></p>
+<ul>
+<li>Chọn màn hình chứa con trỏ, từng màn hình riêng lẻ (<code>Màn hình 1</code>, <code>Màn hình 2</code>, ...), <strong>quay tất cả màn hình cùng lúc</strong>, hoặc mở trình <strong>Tự bố trí màn hình</strong> ngay từ cửa sổ Cài đặt để kéo thả, phóng to/thu nhỏ và sắp xếp các màn hình (Xếp ngang, Xếp dọc, Góc PiP).</li>
+</ul>
+</li>
+<li>
+<p><strong>Vẽ Trực Tiếp Lên Màn Hình (<code>✏️</code>), Thu Âm WASAPI &amp; 21 Ngôn Ngữ:</strong></p>
+<ul>
+<li>Trang bị đầy đủ <strong>Bút vẽ</strong>, <strong>Dạ quang</strong>, <strong>Đường thẳng</strong>, <strong>Mũi tên</strong>, <strong>Hình chữ nhật</strong>, <strong>Elip</strong>, <strong>Tẩy</strong>, <strong>Xuyên chuột</strong>, <strong>7 màu</strong>, <strong>3 cỡ nét</strong>, <strong>Hoàn tác / Làm lại</strong>, <strong>Xóa hết</strong> kèm viên thuốc nhắc <code>&quot;Đang vẽ • Ấn Esc để thoát&quot;</code>.</li>
+<li>Ghi hình DXGI Desktop Duplication (tự chuyển GDI dự phòng), xuất MP4 H.264 + AAC (192 kbps), thu âm thanh hệ thống &amp; Micro, tự mở thư mục chọn tệp video khi xong và hỗ trợ <strong>21 ngôn ngữ phổ biến</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3>Phím tắt mặc định</h3>
+<ul>
+<li><strong>Ctrl + Alt + R:</strong> Mở / Ẩn thanh viên thuốc quay màn hình (hoặc Dừng nếu đang quay)</li>
+<li><strong>Ctrl + Alt + S:</strong> Kéo chuột chọn vùng màn hình và quay ngay</li>
+<li><strong>Ctrl + Alt + P:</strong> Tạm dừng / Tiếp tục quay</li>
+<li><strong>Esc:</strong> Thoát chế độ vẽ lên màn hình (hoặc hủy chọn vùng)</li>
+</ul>
+]]></content>
+        <author>
+            <name>caotu2005</name>
+            <uri>https://github.com/caotu2005</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explorer Extras 1.0.22]]></title>
+        <id>https://windhawk.net/mods/explorer-extras#c44e9030efb09301e7bdb292775d575faf1ab17c</id>
+        <link href="https://windhawk.net/mods/explorer-extras"/>
+        <updated>2026-11-27T04:01:47.000Z</updated>
+        <content type="html"><![CDATA[<h1>Explorer Extras</h1>
+<p><strong>Extra features for File Explorer on Windows 11, one switch per feature.</strong></p>
+<p><img src="https://raw.githubusercontent.com/AristideBH/windhawk-lib/main/explorer-extras/assets/captures/hero.png" alt="Explorer Extras: the Columns layout, the details pane and colour labels in File Explorer"></p>
+<p>A 40-second tour is at the top of the project page: https://github.com/AristideBH/windhawk-lib/tree/main/explorer-extras#readme</p>
+<p>Explorer Extras adds three independent features to File Explorer. Each has its own section and its own off switch on this page: turn on what you like, and the rest stays out of the way.</p>
+<h2>Columns</h2>
+<p>Browse folders the way you do on a Mac: one column per folder level, side by side. Open the <strong>View</strong> menu of a File Explorer window and choose <strong>Columns</strong>.</p>
+<ul>
+<li><strong>It feels like Explorer.</strong> Sorting, grouping, icons, thumbnails and the right-click menu all come from Windows itself. The menu is tidied up: quick actions on top, &quot;Show more options&quot; for the full list.</li>
+<li><strong>Keyboard, selection and undo.</strong> Arrow keys, type to jump, F2 (also for several items at once), Delete, copy and paste, a rubber band, and Ctrl+Z to take back a delete, a rename or a new folder.</li>
+<li><strong>Drag and drop, and touch.</strong> Between columns, into the navigation pane, to other windows and apps, and back. Tap, hold, drag and select with a finger.</li>
+<li><strong>Tabs and memory.</strong> Each tab keeps its own columns, and each folder remembers its sort, its grouping, its column widths and whether you showed it in Columns.</li>
+<li><strong>Archives.</strong> Zip, 7z, rar and tar files open like folders.</li>
+</ul>
+<h2>Details pane</h2>
+<p>One pane that replaces Explorer's Details and Preview panes, in Columns and in every view. Press <strong>Alt+P</strong>, or use the View menu or the toolbar button, to show or hide it.</p>
+<ul>
+<li><strong>Real previews.</strong> PDF, text and code, Markdown, images (zoom, pan, animated GIF), video and sound.</li>
+<li><strong>Details by type.</strong> A folder's size and contents are counted when you press <strong>Calculate</strong>, or by themselves if you turn that on.</li>
+<li><strong>Several files at once.</strong> A fanned stack of thumbnails.</li>
+<li><strong>You stay in control.</strong> Each kind of preview can be switched off, and has a size limit.</li>
+</ul>
+<h2>Labels</h2>
+<p>Colour labels, like the tags of macOS, on files and folders.</p>
+<ul>
+<li><strong>Colours and names.</strong> Seven colours and a neutral gray, an optional name, up to 16 on an item. Give each colour a meaning in the settings, such as &quot;Red = Urgent&quot;.</li>
+<li><strong>Seen everywhere.</strong> A dot after the name, in every view of Explorer's list and in Columns, in step with the light or dark theme.</li>
+<li><strong>Easy to set.</strong> In the <strong>Tags</strong> section of the details pane, or from the right-click menu: a <strong>Tags</strong> entry with the colours, <strong>Add tag</strong> and <strong>Clear tags</strong>. The last eight names you typed are listed, so you type each one once.</li>
+<li><strong>Sort and group.</strong> Explorer's own <strong>Group by</strong> and <strong>Sort by</strong> use them: choose <strong>Tags</strong> (<strong>Étiquettes</strong> in French; under <strong>More</strong> for Sort by) and each label becomes a group. An item with two labels is in both groups.</li>
+<li><strong>They follow the file.</strong> A label is stored in the file itself, so it survives copying or moving on NTFS drives, and the file's dates do not change. See &quot;Good to know&quot; below.</li>
+</ul>
+<h2>Good to know</h2>
+<ul>
+<li><strong>Labels stay in your files.</strong> Labels are off by default, because they are the one part of the mod that changes files: turn on <strong>Show labels</strong> to use them. They are written into the files themselves (an NTFS stream), so they stay there after the mod is disabled or uninstalled, and also on a network share that supports named streams. To take them off, use <strong>Clear tags</strong> (in the pane or the right-click menu) while the mod is still running.</li>
+<li><strong>Removing the mod</strong> leaves Explorer as it was, apart from those labels.</li>
+<li><strong>Works with QuickLook.</strong> Explorer's own view follows the active column, so <a href="https://github.com/QL-Win/QuickLook">QuickLook</a> previews the selected item as it does anywhere else.</li>
+<li><strong>Tested</strong> daily on Windows 11 24H2 (build 26100) on ARM64, in French and English. x86-64 was tested up to version 0.55.</li>
+<li><strong>Built with AI assistance</strong> (Claude Code) under the author's direction, and tested by hand. It has not had an independent code audit, so please report anything odd.</li>
+</ul>
+<p>Bug reports and ideas: https://github.com/AristideBH/windhawk-lib/issues (the issue forms ask for the mod's version and the log).</p>
+<p>If you like it, you can support the work on Ko-fi: https://ko-fi.com/aristidebh</p>
+]]></content>
+        <author>
+            <name>AristideBH</name>
+            <uri>https://github.com/AristideBH</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Super Topmost Windows 1.0]]></title>
+        <id>https://windhawk.net/mods/super-topmost-windows#c04d34828d9cb1a8f398bb36ff648f8846a4f606</id>
+        <link href="https://windhawk.net/mods/super-topmost-windows"/>
+        <updated>2026-11-27T03:00:29.000Z</updated>
+        <content type="html"><![CDATA[<h1>Super Topmost Windows</h1>
+<ul>
+<li>This mod allows pinning any window on top of immersive UI components (Action Center, Start Menu, search, volume HUD, taskbar flyouts, etc.), fullscreen UWP apps, games in borderless or optimized fullscreen mode, Task Manager, and any other ordinary &quot;Always On Top&quot; windows.</li>
+<li>Press the configured hotkey (default: <code>Win+Ctrl+Shift+T</code>) to toggle the super-topmost state of the current foreground window.</li>
+<li>This mod absolutely requires the UIAccess privilege, so it may not work with a portable Windhawk installation running without admin.
+<ul>
+<li>The mod runs inside <code>ctfmon.exe</code>. This mod won't work if <code>ctfmon.exe</code> is disabled by debloating tools. Also, the mod process will show up in Task Manager as second <code>CTF Loader</code> process.</li>
+</ul>
+</li>
+<li>Known issue: It won't work with UWP windows and layered windows (<code>WS_EX_LAYERED</code>).</li>
+<li>Fullscreen games might minimize when focusing the topmost window. You will need a workaround, such as the <a href="https://windhawk.net/mods/ignore-focus-loss">Ignore Focus Loss</a> mod.</li>
+</ul>
+<h2>⚠ Important security notice ⚠</h2>
+<ul>
+<li>Windows set as super-topmost by this mod may <strong>show on top of Windows 10/11's default lock screen, which might expose sensitive information or allow logon bypass.</strong></li>
+<li>This mod tries its best to avoid this issue by temporarily restoring all super-topmost windows to the original state while locked, but it could go wrong (e.g., the mod process dies with super-topmost windows left).</li>
+<li>If this concerns you, either do not use this mod, or disable the lock screen entirely (<a href="https://www.elevenforum.com/t/enable-or-disable-lock-screen-in-windows-11.1287/">use the NoLockScreen registry/GPO</a>) and/or enable the mod's mitigation in the options page.
+<ul>
+<li>If your system requires pressing Ctrl+Alt+Del on logon, you must enable the mod's mitigation, as <code>NoLockScreen</code> still doesn't disable <code>LockApp.exe</code> in that case.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Ingan121/files/refs/heads/master/supertopmost.webp" alt="Animated Screenshot"></p>
+<h2>Hotkey</h2>
+<p>Change the hotkey in the mod's settings. Write any modifiers and exactly one
+key, joined by <code>+</code>, for example <code>Ctrl+Alt+M</code>, <code>Win+Shift+F9</code> or <code>Pause</code>.</p>
+<ul>
+<li>Modifiers: <code>Ctrl</code>, <code>Alt</code>, <code>Shift</code>, <code>Win</code>.</li>
+<li>Keys: <code>A</code>-<code>Z</code>, <code>0</code>-<code>9</code>, <code>F1</code>-<code>F24</code>, <code>Space</code>, <code>Tab</code>, <code>Enter</code>, <code>Esc</code>,
+<code>Backspace</code>, <code>Insert</code>, <code>Delete</code>, <code>Home</code>, <code>End</code>, <code>PageUp</code>, <code>PageDown</code>, <code>Up</code>,
+<code>Down</code>, <code>Left</code>, <code>Right</code>, <code>Pause</code>, <code>ScrollLock</code>, <code>PrintScreen</code>, <code>Numpad0</code>-
+<code>Numpad9</code>, <code>VolumeMute</code>, <code>VolumeDown</code>, <code>VolumeUp</code>, <code>MediaPlayPause</code>,
+<code>MediaNext</code>, <code>MediaPrev</code>, <code>MediaStop</code>.</li>
+<li>Any other key: its virtual-key code in hexadecimal, such as <code>0x4D</code>.</li>
+</ul>
+<p>Windows gives a hotkey to only one program at a time, and other apps stop
+receiving that key combination. If the hotkey does nothing, another program may
+already own it. Turn on logging in the mod's Advanced tab to see why.</p>
+]]></content>
+        <author>
+            <name>Ingan121</name>
+            <uri>https://github.com/Ingan121</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Now Playing... 1.0.0]]></title>
+        <id>https://windhawk.net/mods/now-playing-windhawk#44e701832ef526b8fdec5e46bf1fc23222ff7ff8</id>
+        <link href="https://windhawk.net/mods/now-playing-windhawk"/>
+        <updated>2026-11-27T03:00:23.000Z</updated>
+        <content type="html"><![CDATA[<h1>Now Playing...</h1>
+<p>Push your mouse to the top of your screen and a now-playing bar drops down,
+kind of like the taskbar popping up but upside down. It shows whatever you're
+listening to: Spotify, SoundCloud, YouTube in your browser, Apple Music, VLC,
+pretty much anything that shows up in Windows' media controls.</p>
+<p><img src="https://raw.githubusercontent.com/sultansaad-dev/now-playing-windhawk/main/screenshots/showcase.png" alt="Now Playing... close-ups"></p>
+<p><img src="https://raw.githubusercontent.com/sultansaad-dev/now-playing-windhawk/main/screenshots/desktop-youtube.png" alt="On the desktop"></p>
+<p><img src="https://raw.githubusercontent.com/sultansaad-dev/now-playing-windhawk/main/screenshots/in-game-fortnite.png" alt="In Fortnite"></p>
+<h2>What's on it</h2>
+<ul>
+<li>The album art or video thumbnail, with the app's icon in the corner</li>
+<li>Song title and artist (fancy fonts in names show up properly, no boxes)</li>
+<li>A little button next to the artist that jumps you straight to the app</li>
+<li>Play/pause, plus 10 second skip back and forward</li>
+<li>A progress line you can click or drag to jump anywhere</li>
+<li>Previous and next, but only when the app actually lets you skip</li>
+<li>A wave line that moves with the music</li>
+</ul>
+<h2>Stuff you can change</h2>
+<ul>
+<li>Put it top center, top left or top right, on any monitor</li>
+<li>Background: auto (takes its colour from the album art), translucent, a solid
+colour from the list, or light</li>
+<li>The drip, which is the little liquid neck that makes it look like it's
+hanging off the top of your screen</li>
+<li><strong>Persistent mode:</strong> press Ctrl + Shift + ? and the bar pops up instantly
+and stays up, even in games. Press it again to hide it</li>
+<li>It can peek for a few seconds when a new song starts</li>
+</ul>
+<p>It stays hidden over full screen stuff by default so it won't get in the way
+of your games or videos (use <strong>Persistent mode</strong> if you want it in a game).</p>
+<p>There's a lot more in the <strong>Settings</strong> tab to play around with: size, width,
+corner roundness, animation speed, hover delays, colours, the visualizer
+style and more. Tweak it however you like, everything applies straight away.</p>
+<h2>Good to know</h2>
+<ul>
+<li>Some players, like YouTube in a browser, don't let Windows move the position
+or toggle playback. For those, the skip buttons, the progress bar and
+play/pause send the player's own keyboard shortcuts (J/K/L and number keys on
+YouTube, arrows and space elsewhere) to that app's window in the background,
+only when you click them.</li>
+<li>Similar mods: Dynamic Island Media Player, Dynamic Island for Windows, SMTC
+Now Playing Desktop Widgets and Island Media Controls. This one is different
+because it stays fully hidden until you hover the top edge, then drops down.</li>
+</ul>
+]]></content>
+        <author>
+            <name>sultansaad-dev</name>
+            <uri>https://github.com/sultansaad-dev</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Environment Variable Spoofer 1.0]]></title>
+        <id>https://windhawk.net/mods/env-var-spoofer#217ffdec2390e936d7e3f3a07070bfbfb65c26f5</id>
+        <link href="https://windhawk.net/mods/env-var-spoofer"/>
+        <updated>2026-11-27T02:03:49.000Z</updated>
+        <content type="html"><![CDATA[<h1>Environment Variable Spoofer</h1>
+<p>Makes selected processes see fake values for environment variables such as <code>TEMP</code> and <code>TMP</code>. The system and other processes are not affected.</p>
+<p>By default, the mod only intercepts the Win32 APIs that read environment variables, and the real environment block of the process is left untouched.</p>
+<h2>Choosing the target program</h2>
+<p>The mod targets nothing by default, so it does nothing until you tell it which process to apply to. Open the mod in Windhawk, go to the <strong>Advanced</strong> tab, and put the executable name of your target in the <strong>Custom process inclusion list</strong>. The mod takes effect as soon as you save.</p>
 <h2>Settings</h2>
 <table>
 <thead>
 <tr>
 <th>Setting</th>
 <th>Default</th>
-<th>What it does</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Mini folders</td>
-<td>Apps, Work, Games</td>
-<td>The list of mini folders. Each has a name and an optional path</td>
+<td>Spoofed variables</td>
+<td><code>TEMP=C:\FakeTemp</code>, <code>TMP=C:\FakeTemp</code></td>
+<td>The environment variables to spoof, one <code>NAME=VALUE</code> entry per item. Names are case-insensitive.</td>
 </tr>
 <tr>
-<td>Folder path</td>
-<td>empty</td>
-<td>Leave empty to use <code>%USERPROFILE%\TaskbarFolders\&lt;name&gt;</code>. Any existing folder works, and environment variables are expanded</td>
-</tr>
-<tr>
-<td>Position in the taskbar</td>
-<td>Next to the Start button</td>
-<td>Can also be after the last taskbar app, or at the far left edge of the taskbar</td>
-</tr>
-<tr>
-<td>Mini folder button size</td>
-<td>40</td>
-<td>Size of the tile, from 28 to 56</td>
-</tr>
-<tr>
-<td>Icons per row in the opened folder</td>
-<td>4</td>
-<td>Width of the panel, from 1 to 10 icons</td>
+<td>Also write into the process environment block</td>
+<td>off</td>
+<td>Also write the values into the process environment block, so that CRT <code>getenv</code>, <code>GetEnvironmentStrings</code> and child processes see them too. The original values are restored when the mod is unloaded.</td>
 </tr>
 </tbody>
 </table>
-<p>Renaming a mini folder that uses the default path points it to a new, empty
-folder. The old folder and its contents stay on disk.</p>
-<h2>Files and folders the mod creates</h2>
+<h2>Intercepted APIs</h2>
 <ul>
-<li>The folder of a mini folder (by default inside <code>%USERPROFILE%\TaskbarFolders</code>),
-created when you first use <strong>+ Add...</strong> or <strong>Open folder</strong> in it.</li>
-<li>The shortcuts that <strong>+ Add...</strong> puts into that folder.</li>
+<li><code>GetEnvironmentVariableW/A</code></li>
+<li><code>ExpandEnvironmentStringsW/A</code>, i.e. the expansion of <code>%TEMP%</code> and similar</li>
+<li><code>GetTempPathW/A</code> and <code>GetTempPath2W/A</code>, which look at <code>TMP</code>, <code>TEMP</code> and <code>USERPROFILE</code> in that order</li>
 </ul>
-<p>These are your files. The mod never deletes them, so they stay on disk after
-the mod is disabled or removed. Delete the <code>TaskbarFolders</code> folder yourself if
-you no longer need it.</p>
-<h2>Performance</h2>
-<ul>
-<li>Folder contents and icons are read on a background thread, never on the
-taskbar thread, so a slow disk or a network folder can't freeze the taskbar.</li>
-<li>Nothing runs in the background: no timers and no folder watching. The tile
-preview is refreshed when you open the mini folder or change it from the
-panel.</li>
-<li>Opening the same mini folder again reuses the icons that are already loaded.</li>
-</ul>
-<h2>Limitations</h2>
-<ul>
-<li>Windows 11 with the new taskbar only. It doesn't work with the old taskbar
-restored by ExplorerPatcher or similar tools.</li>
-<li>If you change a folder in Explorer, the tile preview updates the next time
-you open that mini folder.</li>
-<li>Dragging items onto a mini folder is not supported. Use <strong>+ Add...</strong> or
-<strong>Open folder</strong>.</li>
-<li>The panel does not scroll. A folder with many items gets more icons per row
-so that the panel fits the screen. Items that still don't fit are not shown.</li>
-</ul>
-<p>Tip: unpin the normal taskbar icons and keep everything in mini folders.</p>
+<p><code>GetTempPath</code> keeps the lookup order of the system: if the process has a real <code>TMP</code> and only <code>TEMP</code> is spoofed, the real <code>TMP</code> still wins. Spoof both.</p>
+<h2>Notes</h2>
+<p>Changing the settings reloads the mod automatically.</p>
+<p>With the environment block option turned off, programs that cache a copy of the environment at startup (CRT <code>getenv</code> / <code>_wgetenv</code>, Python <code>os.environ</code>) and child processes created by the target process still see the real values. Turn the option on to cover these cases.</p>
+<p>With the option turned on, the mod must be injected before the target program caches its environment. A cache made earlier cannot be changed.</p>
+<p>Programs that parse the environment block in the PEB directly, or call <code>ntdll!RtlQueryEnvironmentVariable*</code> themselves, are not affected by the API hooks. The environment block option covers them.</p>
+<h2>Implementation notes</h2>
+<p>The mod hooks the exports in <code>kernelbase.dll</code>, falling back to <code>kernel32.dll</code>. <code>GetTempPath2W/A</code> do not exist on older systems and are skipped there.</p>
+<p><code>ExpandEnvironmentStrings</code> is only taken over when the source string contains at least one spoofed variable. Everything else goes to the original function, so without a spoofed variable in the string the behavior is unchanged.</p>
+<p>The environment block option writes the values with <code>SetEnvironmentVariableW</code> before the hooks are installed, so the original values can be read back and restored when the mod is unloaded.</p>
 ]]></content>
         <author>
-            <name>Sanekx Arcs</name>
-            <uri>https://github.com/SanekxArcs</uri>
+            <name>loliri</name>
+            <uri>https://github.com/loliri</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Yandex Music Transparency 1.1]]></title>
-        <id>https://windhawk.net/mods/yandex-music-transparency#8f4eaeef62ea9804e81a529e792d7423b45d5c04</id>
-        <link href="https://windhawk.net/mods/yandex-music-transparency"/>
-        <updated>2026-11-19T04:05:06.000Z</updated>
-        <content type="html"><![CDATA[<h1>Yandex Music Transparency</h1>
-<p>Automatically makes the <strong>Yandex Music</strong> (<code>Яндекс Музыка.exe</code>) desktop window transparent on startup and continuously prevents the Electron application from resetting its opacity or removing <code>WS_EX_LAYERED</code>.</p>
-<p>Unlike one-shot rule-based or hotkey-based opacity mods, this mod injects into the process to actively preserve your chosen transparency level across window state changes and redraws.</p>
-<h2>Settings</h2>
-<ul>
-<li><strong>Window Opacity (<code>Alpha</code>)</strong>: Controls the opacity level from <code>50</code> (more transparent) to <code>255</code> (fully opaque). Default is <code>220</code>.</li>
-</ul>
-<h2>Using with other applications</h2>
-<p>Although tailored for Yandex Music by default, you can apply the same persistent transparency to other Chromium/Electron applications by adding their executable names in the mod's <strong>Advanced</strong> tab under <strong>Custom process inclusion list</strong>.</p>
-<h2>Limitations</h2>
-<ul>
-<li>Only affects top-level windows with the <code>Chrome_WidgetWin_1</code> window class.</li>
-<li>Windows that already use color-key transparency (<code>LWA_COLORKEY</code>) are skipped to avoid visual artifacts.</li>
-<li>Disabling or unloading the mod restores the window's original opacity and layered style.</li>
-</ul>
-<h2>Credits</h2>
-<p>Created with assistance from ChatGPT.</p>
-]]></content>
-        <author>
-            <name>NIKTO</name>
-            <uri>https://github.com/NIKTO-2</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WindowPilot 1.2.0]]></title>
-        <id>https://windhawk.net/mods/windowpilot#0ec737dcbc499f06130908d2cb62fdbd537ac152</id>
-        <link href="https://windhawk.net/mods/windowpilot"/>
-        <updated>2026-11-19T00:01:43.000Z</updated>
-        <content type="html"><![CDATA[<h1>WindowPilot</h1>
-<h2>English</h2>
-<p>Control the foreground window with configurable shortcuts:</p>
+        <title type="html"><![CDATA[Windows 7 User Account Page Restorer 1.0.0]]></title>
+        <id>https://windhawk.net/mods/win7-user-account-page-restorer#27f3cc72c9457d7de135a22489efb2eac28d5b79</id>
+        <link href="https://windhawk.net/mods/win7-user-account-page-restorer"/>
+        <updated>2026-11-27T02:03:43.000Z</updated>
+        <content type="html"><![CDATA[<h1>Windows 7 User Account Page Restorer</h1>
+<h2>About</h2>
+<p>This mod restores the <strong>User Accounts</strong> page of Control Panel as it was in Windows 7: the user tile with its glass
+frame, &quot;Create a password for your account&quot;, &quot;Change your picture&quot;, &quot;Manage another account&quot;, &quot;Create a new
+account&quot;, the guest account pages, and the classic task list on the left.</p>
+<p>Windows 10 and 11 still have a User Accounts page, but it is a reduced one that sends most tasks to the Settings
+app. This mod puts the original Windows 7 page (NT 6.1) back in its place. The page is the real one, not a
+recreation: it is Microsoft's <code>usercpl.dll</code> 6.1.7600.16385 running on its own Windows 7 DirectUI engine.</p>
+<p>No system file is replaced or modified, and nothing is written to the registry. Disable the mod and the Windows
+10/11 page is back.</p>
+<h2>Screenshots</h2>
+<p><img src="https://raw.githubusercontent.com/babamohammed2022/babamohammed2022/main/accountpage1.PNG" alt="User Accounts page, main view"></p>
+<p><img src="https://raw.githubusercontent.com/babamohammed2022/babamohammed2022/main/accountpage2.PNG" alt="User Accounts page, account view"></p>
+<h2>What is downloaded, from where, and when</h2>
+<p>The mod contains no Microsoft binaries and never asks you for a file. The first time it runs it downloads four
+files, 2 MB in total, from Microsoft's public symbol server (<code>https://msdl.microsoft.com/download/symbols/</code>):</p>
 <table>
 <thead>
 <tr>
-<th>Default shortcut</th>
+<th>File</th>
+<th>Version</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>usercpl.dll</code></td>
+<td>6.1.7600.16385 (Windows 7)</td>
+<td>the page</td>
+</tr>
+<tr>
+<td><code>dui70.dll</code></td>
+<td>6.1.7601.23403 (Windows 7 SP1)</td>
+<td>the DirectUI engine the page was built for</td>
+</tr>
+<tr>
+<td><code>shacct.dll</code></td>
+<td>10.0.10240.16384 (Windows 10 1507)</td>
+<td>only the picture frame bitmap; never loaded as code</td>
+</tr>
+<tr>
+<td><code>duser.dll</code></td>
+<td>6.1.7600.16385 (Windows 7)</td>
+<td>only the text of the &quot;common&quot; style sheet; never loaded as code</td>
+</tr>
+</tbody>
+</table>
+<p>The size and the SHA-256 of each file are checked against values pinned in the mod; a file that does not match is
+discarded. The originals are kept in the mod's storage folder (<code>dl</code>). From them the mod builds, in <code>bin</code>, a private
+copy of the page for the selected language (see <em>How it works</em>). Nothing is downloaded again while <code>dl</code> is present,
+so after the first run the mod works offline.</p>
+<p>The download cannot be turned off, and the mod cannot work without it. With <em>Keep downloaded files when the mod is
+disabled</em> off, the files are deleted at every unload, so the download is repeated after every disable or update. The
+only thing sent is the HTTPS request for the four fixed URLs, with the user agent <code>Microsoft-Symbol-Server/10.0.0.0</code>.</p>
+<p><strong>Offline at first run:</strong> the Windows 10/11 page simply stays, and the reason is written to the mod's log. Connect
+to the internet and restart <code>explorer.exe</code> (or toggle the mod).</p>
+<h2>How it works</h2>
+<ul>
+<li><strong>The page.</strong> Control Panel is told to read the page definition and the layouts from the mod's private copy
+instead of <code>System32\usercpl.dll</code> (one documented function, <code>PSPropertyBag_ReadStr</code>, answers differently for that
+one value). The private copy is Microsoft's file with <strong>no code byte changed</strong>; only its resources are extended:
+the strings (the symbol server has no <code>.mui</code> files, so the strings are embedded in the mod, in English, Italian,
+French, Spanish, Portuguese and German), the picture frame, and the page definition.</li>
+<li><strong>The &quot;modified page&quot;.</strong> The original Windows 7 layouts cannot load on Windows 10/11 as they are, for two reasons,
+and both are solved inside the private copy, with nothing in <code>System32</code> involved:
+<ul>
+<li>they take the picture frame from <code>shacct.dll</code>, which no longer contains it since Windows 10 1607 (this is why
+the manual method needs a patched <code>shacct.dll</code>): the frame is put into the private copy and the layouts are
+pointed to it;</li>
+<li>they use the &quot;Common&quot; style sheet, which DirectUI reads from the system's <code>DUser.dll</code>; since Windows 8 that
+sheet is stored in a binary format the Windows 7 DirectUI cannot read: the Windows 7 text of the sheet is put
+into each layout.</li>
+</ul>
+</li>
+<li><strong>The accounts.</strong> The Windows 7 page talks to the system's account objects through interfaces that changed in
+Windows 10. The mod translates between the two layouts, so the page works on the Windows 10/11 implementation
+(with the system's own elevation prompt) instead of on old code. Creating a local account also runs
+<code>net.exe user &quot;&lt;name&gt;&quot; /add</code> elevated, which can show a second UAC prompt. It creates an account without a
+password; the page then performs any further changes through its account object. If the command times out or
+the account cannot be read back, creation may already have succeeded: check the account list before retrying.</li>
+<li><strong>Scope.</strong> The mod runs only in <code>explorer.exe</code>. Until the page is opened for the first time it loads nothing.</li>
+</ul>
+<h2>Settings</h2>
+<ul>
+<li><strong>Page language</strong>: <em>Automatic</em> follows the Windows display language (English, Italian, French, Spanish, Portuguese or German;
+English if Windows uses another language). Applies to windows opened after the change; if the page was already used in this session, restart
+<code>explorer.exe</code>.</li>
+<li><strong>Show a generic user name</strong>: off by default. When on, the name of the signed-in user is shown as a generic one
+(&quot;User&quot;, &quot;Utente&quot;, &quot;Benutzer&quot;, ...) on this page only; Windows and the account keep the real name. Saving the generic name
+unchanged in &quot;Change the account name&quot; does nothing, so the account is never renamed by mistake.</li>
+<li><strong>Show legacy online ID and fingerprint links</strong>: off by default. When enabled, the page's original visibility
+checks apply; fingerprint hardware may be required. Close and reopen the page after changing the setting. These
+links can remain unavailable or nonfunctional because their Windows 7 targets are normally absent on Windows 10/11.</li>
+<li><strong>Keep downloaded files when the mod is disabled</strong>: on by default, so that enabling the mod again needs no
+download.</li>
+</ul>
+<h2>Notes and limitations</h2>
+<ul>
+<li><strong>Best effort.</strong> This mod is provided on a best-effort basis. It runs a Windows 7 page on top of Windows 10/11
+components that Microsoft can change at any time, so some features may not work, or may stop working after a
+Windows update. The translations of the page (French, Spanish, Portuguese and German in particular) were also written
+without the original Microsoft files and may differ from the official wording.</li>
+<li><strong>Account removal is disabled.</strong> Because of a limitation of the legacy provider, removing an account from the classic
+page does nothing: the page shows a localized message and opens Settings &gt; Accounts &gt; Other users, where the account
+can be removed. Back up important files first: Settings can also delete the account data. The reason is that the
+provider's remove method runs inside the elevated account server, which for about 20 seconds blocks every other call
+to it, and with it the window of the page; its profile/file handling is also unverified.</li>
+<li><strong>The Guest account is an edge case and is not supported by modern Windows.</strong>
+The Windows 7 page can turn the Guest account on and off, but the Guest account is
+not supported by Windows 10/11, and it has been reported to work correctly only
+with a custom shell such as Explorer7/Windows7ExplorerRestorer (or equivalent software). For normal
+(non-Guest) profiles the page is expected to work.</li>
+<li>The mod has been created for Windows 10 1607 or later or Windows 11; 64-bit (x64).</li>
+<li>The mod has been tested on Windows 10 21H2 and Windows 11 24H2. Other versions from Windows 10 1607 on may work, but have not been tested.</li>
+<li>This is the Windows 7 page: it does not know Microsoft accounts as such (they appear as the local accounts they
+are bound to).</li>
+<li><strong>Legacy online ID and fingerprint links are best effort.</strong> &quot;Link online IDs&quot; and &quot;Manage your fingerprint data&quot;
+are suppressed by default and can be allowed by a setting. Their original availability checks still apply, and
+functionality depends on specific legacy components or separate restorations that this mod does not provide or
+verify. The Windows 7 targets are normally absent on Windows 10/11, and even a restored component or provider may
+not be compatible or operational. In particular, this mod removes the online IDs page definition from its private
+copy: enabling the link does not restore that page, and a test produced a file-not-found error when it was clicked.
+No working restoration is guaranteed. &quot;Parental Controls&quot; remains conditional on a Family Safety applet being present.</li>
+<li>&quot;Change your picture&quot; lists the pictures of <code>ProgramData\Microsoft\User Account Pictures\Default Pictures</code>,
+which Windows 10/11 do not ship; &quot;Browse for more pictures...&quot; works.</li>
+<li>When the mod is disabled or updated, it closes the Explorer windows that currently show the User Accounts page and waits
+until they are gone (a window that has moved on to another folder is left alone). The <strong>whole window closes, including
+any other tabs in it</strong>, and so do the dialogs the page has open; save your work in those tabs first. The close request
+is repeated every second and the wait is logged every few seconds. A pending UAC prompt cannot be closed by the mod:
+answer it. The three links of the page that the mod hides come back. The page and its DirectUI file (private copies in the
+mod's storage folder) stay loaded in <code>explorer.exe</code> until it restarts, but nothing in them points into the mod.</li>
+<li>If the Windows 7 page cannot be loaded for any reason, the Windows 10/11 User Accounts page is used.</li>
+<li>After changing a setting, close open User Accounts windows.</li>
+</ul>
+<h2>Credits</h2>
+<ul>
+<li><strong>RandomGuy5747</strong> (WinClassic) for the German translation of the page.</li>
+<li><strong>RandomGuy5747</strong> (WinClassic) for pointing out that the Windows 7 page can run on Windows 10 with the Windows 7
+DirectUI, in the thread &quot;Secure restoration of Control Panel applets in Windows 10/11&quot;.</li>
+<li><strong>Brawllux</strong> (CPL Restoration Pack) for the finding that the page needs the picture frame of <code>shacct.dll</code>.</li>
+<li><strong>AdmXP8</strong> for the technique of running an older Control Panel page from Microsoft's symbol server
+(Language Applet Restorer, Family Safety Applet Restorer).</li>
+</ul>
+]]></content>
+        <author>
+            <name>babamohammed</name>
+            <uri>https://github.com/babamohammed2022</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Uninstall Here 1.0.0]]></title>
+        <id>https://windhawk.net/mods/uninstall-here#44e2f253e00c07eeba6ec5de7c111d1600850018</id>
+        <link href="https://windhawk.net/mods/uninstall-here"/>
+        <updated>2026-11-26T22:02:28.000Z</updated>
+        <content type="html"><![CDATA[<h1>Uninstall Here</h1>
+<p>Open a desktop app's own uninstaller from the Windows 11 Start menu. Uninstall Here saves you a trip through <strong>Installed apps</strong> when it can identify the app's uninstaller.</p>
+<h2>How to use</h2>
+<p><strong>Start → All apps → right-click the app → Uninstall</strong></p>
+<p>Confirm the product name before its uninstaller opens. MSI products open Windows Installer in uninstall mode. Follow any subsequent prompts from the uninstaller or Windows.</p>
+<p>This mod targets 64-bit Windows 11. The <strong>All apps</strong> flow was tested on x64 build <code>26300.10075</code>.</p>
+<h2>If Installed apps still opens</h2>
+<p>Windows handles packaged apps and desktop apps without one identifiable registered installation.</p>
+<p>If you expected the app to work, enable logging for <strong>Uninstall Here</strong> in Windhawk and repeat the click. Include the app version, Windows build, and the mod's log entries in your report. <a href="https://github.com/luizbizzio/uninstall-here/issues">Report an issue</a></p>
+<h2>Screenshot</h2>
+<p><img src="https://raw.githubusercontent.com/luizbizzio/uninstall-here/main/assets/uninstall-here-cover.png" alt="The Uninstall command highlighted in the Windows 11 Start menu"></p>
+<p><a href="https://github.com/luizbizzio/uninstall-here">Project on GitHub</a></p>
+]]></content>
+        <author>
+            <name>Luiz Bizzio</name>
+            <uri>https://github.com/luizbizzio</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Desktop Clock & Weather 1.0.7]]></title>
+        <id>https://windhawk.net/mods/desktop-clock-weather#9e30cde12c8838f10f8bca0cf40b5b213ec1ed54</id>
+        <link href="https://windhawk.net/mods/desktop-clock-weather"/>
+        <updated>2026-11-26T08:04:27.000Z</updated>
+        <content type="html"><![CDATA[<h1>Desktop Clock &amp; Weather</h1>
+<p><img src="https://raw.githubusercontent.com/DineroOne/windhawk-desktop-clock-weather/main/screenshot-small.png" alt="Illustration of the widget"></p>
+<p>The widget is drawn directly on the desktop: <strong>above the wallpaper but below icons and folders</strong>,
+so it never intercepts clicks.</p>
+<p>Shows time, weekday, date and a 3-7 day weather forecast.
+Weather comes from <a href="https://open-meteo.com">Open-Meteo</a> (free, no API key needed).
+Set the city name in the settings; coordinates are found automatically.</p>
+<p>Everything (position, size, font, colors, shadow, background, date format, etc.) is configurable in the settings tab.</p>
+<p>The optional <strong>Adjust font color to wallpaper</strong> switch picks a light or a dark text color automatically.
+It first samples the pixels visible behind the widget, when the desktop is unobstructed. If screen capture
+is unavailable, it estimates brightness from the wallpaper file and Windows wallpaper layout settings.
+This processing is local; no wallpaper data is sent anywhere.</p>
+<h2>Why this is a separate mod</h2>
+<p><a href="https://windhawk.net/mods/desktop-live-overlay">Desktop Live Overlay</a> is a general-purpose overlay built from free-form text patterns and system metrics.
+This mod does one narrower thing: a structured 3-7 day forecast grid (weekday, icon, high/low, precipitation chance, as a row or a column)
+with an independent font, size and color for the time, weekday, date and weather, an element order, an overall scale and a text color that follows the wallpaper.
+It uses Open-Meteo instead of wttr.in. If the maintainer prefers, the forecast part can instead be offered to the author of Desktop Live Overlay as a contribution.</p>
+<h2>Network use</h2>
+<p>Weather is the only feature that uses the network. Requests are made only when <strong>Show weather</strong> is on,
+a city is configured, and <code>weather</code> is included in the <strong>Order of elements</strong> setting.
+The mod sends HTTPS requests to two Open-Meteo hosts:</p>
+<ul>
+<li><code>geocoding-api.open-meteo.com</code> - once each time the mod loads (for example at every Explorer start) and when the city or the date/weekday language changes, to turn the city name into coordinates (the city name and language code are sent).</li>
+<li><code>api.open-meteo.com</code> - at startup and then every N minutes (30 by default, see <strong>Update weather every</strong>), to get the forecast (the coordinates are sent). Failed requests are retried after about one minute.</li>
+</ul>
+<p>Like any web server, Open-Meteo can see your IP address. No API key or account is required.
+No weather requests are made while the city is empty, <strong>Show weather</strong> is off, or <code>weather</code> is omitted from the element order.</p>
+]]></content>
+        <author>
+            <name>DineroOne</name>
+            <uri>https://github.com/DineroOne</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Adaptive Tray Contrast 0.3.16]]></title>
+        <id>https://windhawk.net/mods/adaptive-tray-contrast#dd2b0cad4fd0a38e53c19fa604468577ef4f663a</id>
+        <link href="https://windhawk.net/mods/adaptive-tray-contrast"/>
+        <updated>2026-11-26T07:02:38.000Z</updated>
+        <content type="html"><![CDATA[<h1>Adaptive Tray Contrast</h1>
+<p>On a transparent Windows 11 taskbar, a light window can sit behind half the date while the other half is over dark wallpaper. This Windhawk mod chooses black or white for each clock and date character according to the background behind it.</p>
+<p>Supported monochrome tray icons and the Chinese/English input indicator adapt independently. Start, Search, Task View, Widgets and app buttons can switch button themes. For packaged apps that provide both light and dark icon variants, the mod uses the variant that suits each button's background. Colored tray icons and the colored part of the battery keep their original colors. A packaged app's themed icon can cover its own dynamic artwork.</p>
+<p>In 0.3.16, clicking the Chinese/English input indicator hides the previous tinted glyph while the new one is captured. When the native glyph already has the desired color, the mod displays it directly.</p>
+<h2>中文说明</h2>
+<p>在 Windows 11 的透明任务栏上，如果浅色窗口的边缘刚好穿过日期，同一行里，压在浅色窗口上的数字可以变黑，留在深色壁纸上的数字可以保持白色。时间和日期分别逐字符判断。</p>
+<p>模组也会分别调整受支持的单色托盘图标和中英文输入法指示器，切换开始、搜索、任务视图、小组件及应用按钮的深浅主题。打包应用如果自带深浅两套图标，模组会按每个按钮背后的画面选用对应图标。彩色托盘图标和电池的彩色部分保留原色；应用自带的动态图案可能被深浅版图标覆盖。</p>
+<p>从 0.3.16 起，点击“中／英”时会先撤下旧字的着色层，再用新字着色，减少切换瞬间的重影。如果系统原字已经是需要的颜色，就直接显示原字。</p>
+<h2>Demos · 实机演示</h2>
+<h3>App icons · 应用图标</h3>
+<p><strong>Drag a window · 缓慢拖动窗口</strong><br>
+Watch each supported app icon as the window edge passes behind its button.<br>
+窗口边缘扫过不同按钮时，各应用图标分别切换深浅版本。</p>
+<p><img src="https://raw.githubusercontent.com/StillDialing/adaptive-tray-contrast/74698893e81b32dd0d73b301024dc384c16dd2fe/images/app-icons-window-drag.gif" alt="App icons as a window edge moves behind the taskbar"></p>
+<p><strong>Switch between full-screen apps · 切换全屏应用</strong><br>
+Compare the app icons as you switch apps and reveal the taskbar.<br>
+切换全屏应用，观察任务栏显示时应用图标的变化。</p>
+<p><img src="https://raw.githubusercontent.com/StillDialing/adaptive-tray-contrast/74698893e81b32dd0d73b301024dc384c16dd2fe/images/app-icons-window-switch.gif" alt="App icons when switching between full-screen apps"></p>
+<h3>System tray, clock and date · 右侧托盘、时间和日期</h3>
+<p><strong>Drag a window · 缓慢拖动窗口</strong><br>
+Follow the window edge across the tray icons and individual clock and date characters.<br>
+留意窗口边缘经过右侧托盘和日期时，哪些图标、哪些数字先变色。</p>
+<p><img src="https://raw.githubusercontent.com/StillDialing/adaptive-tray-contrast/74698893e81b32dd0d73b301024dc384c16dd2fe/images/tray-window-drag.gif" alt="Tray icons and individual characters as a window moves"></p>
+<p><strong>Switch between full-screen apps · 切换全屏应用</strong><br>
+Compare the right side of the taskbar against the different backgrounds.<br>
+切换全屏应用后，对比不同背景下右侧托盘、时间和日期的颜色。</p>
+<p><img src="https://raw.githubusercontent.com/StillDialing/adaptive-tray-contrast/74698893e81b32dd0d73b301024dc384c16dd2fe/images/tray-window-switch.gif" alt="System tray, clock and date when switching between full-screen apps"></p>
+<h2>Settings · 设置</h2>
+<p>The default sampling interval is 80 ms (adjustable from 40 to 2000 ms). A longer interval samples less often and responds more slowly. Sharp background boundaries can cause brief flicker.</p>
+<p>默认每 80 毫秒采样一次，可在设置中调整为 40 至 2000 毫秒。间隔越长，采样越少，响应也越慢。图标恰好位于深浅交界处时可能短暂闪烁。</p>
+]]></content>
+        <author>
+            <name>StillDialing</name>
+            <uri>https://github.com/StillDialing</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Same-App Window Cycler (Alt+`) 0.1.4]]></title>
+        <id>https://windhawk.net/mods/same-app-window-cycler#a9a990a6a8bf04a18e3c7e40c93300a7b284512c</id>
+        <link href="https://windhawk.net/mods/same-app-window-cycler"/>
+        <updated>2026-11-26T07:02:33.000Z</updated>
+        <content type="html"><![CDATA[<h1>Same-App Window Cycler</h1>
+<p>Brings the macOS <strong>Cmd+`</strong> behavior to Windows. While an app has several
+windows open, press <strong>Alt+`</strong> to jump to its next window, or <strong>Alt+Shift+`</strong>
+to go to the previous one. Repeated presses walk through all of the app's
+windows, and Alt+Shift+` walks through them in the opposite order.</p>
+<p>The shortcut uses the physical key left of <code>1</code>. The key is mapped when the mod
+starts, so it follows the keyboard layout that is active at that time.</p>
+<h2>How it differs from the existing switcher mods</h2>
+<p>Simple Window Switcher, ClassicWindowSwitcher and Windows 7/8.1 Alt+Tab
+Recreation also offer an Alt+` &quot;windows of the current app&quot; mode, but all of
+them replace the native Alt+Tab and show their own switcher UI. This mod leaves
+Alt+Tab untouched and switches windows directly, with no UI. If you already use
+one of those mods for Alt+`, you don't need this one.</p>
+<h2>Conflicts</h2>
+<p>Alt+` is registered as a global hotkey, and only one program can own it.</p>
+<ul>
+<li>Simple Window Switcher registers Alt+` by default (<code>altBacktickBehavior: backward</code>), so if both mods are enabled, whichever registers first gets the
+key and the other one only logs a failure. Set its Alt+` behavior to &quot;none&quot;,
+or don't enable both.</li>
+<li>Windows 7/8.1 Alt+Tab Recreation catches Alt+` with a low-level keyboard hook
+and swallows it. With its <code>onlyThisAppHotkey</code> option on, that mod gets the key
+no matter which one registers first, and this mod's hotkey never fires.</li>
+<li>The same applies to other tools that use Alt+`, such as AutoHotkey scripts.</li>
+<li>Apps that have their own Alt+` or Alt+Shift+` shortcut stop receiving it
+while this mod is on.</li>
+</ul>
+<h2>How it works</h2>
+<p>The mod runs as a tool mod in a dedicated <code>windhawk.exe</code> process and registers a
+global hotkey. When pressed, it takes the foreground window, finds all other
+switchable top-level windows that belong to the same executable on the current
+virtual desktop, and activates the next one.</p>
+<h2>Limitations</h2>
+<ul>
+<li>Windows are grouped by executable path. UWP apps hosted by
+ApplicationFrameHost.exe are all treated as one &quot;app&quot;.</li>
+<li>Windows of elevated (administrator) apps may only flash instead of coming to
+the front.</li>
+<li>&quot;Always on top&quot; windows (such as Picture-in-Picture) are skipped while
+cycling, unless one of them is the current window.</li>
+<li>If you switch keyboard layouts and the key left of <code>1</code> produces a different
+virtual key, the hotkey stays on the key it was registered with. Disable and
+re-enable the mod after changing layouts.</li>
+</ul>
+]]></content>
+        <author>
+            <name>mdozkanji</name>
+            <uri>https://github.com/mdozkanji</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AltTabs - Browser Tab Switcher HUD 1.2.0]]></title>
+        <id>https://windhawk.net/mods/alttabs#e2c26c23a2cca579ddfcb2072037bd790ae78f37</id>
+        <link href="https://windhawk.net/mods/alttabs"/>
+        <updated>2026-11-26T07:02:27.000Z</updated>
+        <content type="html"><![CDATA[<h1>AltTabs - Browser Tab Switcher HUD</h1>
+<p>Press <strong>Alt+Q</strong> while a Chrome, Edge or Brave window is focused to open a
+searchable list of the tabs in that window. Type to filter, pick a tab with
+the arrow keys, and press <strong>Enter</strong> to switch to it.</p>
+<p><img src="https://raw.githubusercontent.com/Dszae/AltTabs/8fdb2c819e758ff60a8b6b35ea9a46135c42e632/assets/hud.png" alt="AltTabs"></p>
+<h2>Keys</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Win + Q</td>
-<td>Close normally, preserving the application's save prompts</td>
+<td><strong>Alt+Q</strong> or <strong>Alt+`</strong></td>
+<td>Open the list, with the tab after the current one selected. While it's open, press again to move down, or with Shift to move up.</td>
 </tr>
 <tr>
-<td>Win + Z</td>
-<td>Minimize</td>
+<td>Typing</td>
+<td>Filter the tabs. Several words match tabs that contain all of them.</td>
 </tr>
 <tr>
-<td>Win + N</td>
-<td>Maximize; optionally restore when already maximized</td>
+<td><strong>↑</strong> <strong>↓</strong>, <strong>Tab</strong>, <strong>Shift+Tab</strong></td>
+<td>Move the selection</td>
 </tr>
 <tr>
-<td>Win + Shift + N</td>
-<td>Open the native Windows Notification Center</td>
+<td><strong>Page Up</strong>, <strong>Page Down</strong></td>
+<td>Move the selection by a page</td>
 </tr>
 <tr>
-<td>Win + S</td>
-<td>Original Windows Search, unchanged</td>
+<td><strong>Enter</strong> or click</td>
+<td>Switch to the selected tab</td>
+</tr>
+<tr>
+<td><strong>Backspace</strong>, <strong>Ctrl+Backspace</strong></td>
+<td>Delete a character, clear the filter</td>
+</tr>
+<tr>
+<td><strong>Esc</strong></td>
+<td>Close the list</td>
 </tr>
 </tbody>
 </table>
-<p>Each window action has independent enable, shortcut, game protection and
-double-press confirmation settings. Game protection is enabled by default;
-double-press confirmation is disabled by default. Shortcuts support Win, Ctrl,
-Alt, Shift, A–Z, 0–9, F1–F24 and common named keys. Examples: <code>Win+Q</code>,
-<code>Ctrl+Alt+F10</code>, <code>Win+Shift+N</code>. Only the exact configured combination is consumed.
-Changing or disabling a shortcut immediately releases its old combination.
-Win+S and Win+L are reserved; duplicate or invalid bindings show a warning.</p>
-<p>With confirmation enabled, press and release the shortcut twice in <strong>less than
-3 seconds</strong>. The hint disappears after 1.5 seconds by default; its disappearance
-does not shorten the confirmation deadline. Holding a key never confirms.
-Switching windows, choosing another action, pressing Esc or saving settings
-cancels a pending confirmation. Timings are configurable for each action.</p>
-<p><strong>Hint appearance:</strong> automatically follows the Windows display language in
-English, Portuguese or Spanish, with English fallback for other languages.
-You can also select a language manually. Dark and light themes can follow
-Windows or be selected explicitly. <strong>Always on top</strong> is configurable and
-enabled by default. The hint never steals keyboard focus or intercepts clicks.
-Settings labels follow the language selected in the Windhawk interface.</p>
-<p><strong>Compatibility:</strong> Windows 11 x64 and Windhawk 1.7.3 or later. WindowPilot
-runs in a dedicated Windhawk tool process for standard desktop windows.
-Elevated apps and secure-desktop prompts are outside the supported scope.</p>
-<p><strong>Games:</strong> detection uses editable executable/path patterns, Unity/Unreal
-window classes and optional fullscreen geometry. It is conservative: browser
-F11 fullscreen can be protected too; ordinary maximized windows are excluded
-from the fullscreen heuristic. Add unrecognized windowed games to the list.
-When game protection applies, the original Windows shortcut receives the key.
-The same applies on the desktop, taskbar, menus and windows that cannot perform
-the requested action. On eligible windows, the defaults take over Windows
-Search (Win+Q), Snap layouts (Win+Z) and Notification Center (Win+N).
-Use Win+S for Search, Win+Shift+N for notifications, or change the assignments
-to use the original combinations.</p>
-<p>Notifications use the original Win+N after the alternate shortcut's modifiers
-are released. Tagged synthetic input prevents recursive maximization. If an
-existing Windows policy disables Notification Center, the hint explains the
-restriction. Closing a window sends a normal close request to the application.</p>
-<h2>Português</h2>
-<p>Atalhos padrão: <strong>Win+Q</strong> fecha, <strong>Win+Z</strong> minimiza, <strong>Win+N</strong> maximiza/restaura,
-<strong>Win+Shift+N</strong> abre notificações e <strong>Win+S</strong> continua sendo a pesquisa nativa.
-Cada ação tem opções independentes de ativação, atalho, proteção para jogos e
-duas pressões. A proteção para jogos vem ativada e a confirmação desativada.</p>
-<p>Com a confirmação ligada, solte a tecla e pressione novamente em menos de
-3 segundos. O aviso some após 1,5 segundo, mas o prazo continua válido.
-Trocar de janela, usar outra ação, pressionar Esc ou salvar configurações cancela.</p>
-<p>Em <strong>Aparência do aviso</strong>, escolha idioma automático/inglês/português/espanhol,
-tema automático/escuro/claro e <strong>Sempre no topo</strong>. O modo automático acompanha
-o idioma de exibição e o tema do Windows; o aviso não captura foco nem cliques.
-Os rótulos das configurações seguem o idioma da interface do Windhawk.</p>
-<p>Compatível com Windows 11 x64 e Windhawk 1.7.3 ou posterior. O mod roda em um
-processo dedicado do Windhawk para janelas comuns. Aplicativos elevados e a
-área de trabalho segura ficam fora da cobertura. Use o botão do Windhawk para
-desativar o mod inteiro.</p>
-<p>Para jogos protegidos, área de trabalho, barra de tarefas, menus ou janelas que
-não aceitam a ação, vale o atalho original do Windows. Em janelas compatíveis,
-os padrões substituem Pesquisa (Win+Q), layouts de encaixe (Win+Z) e Central
-de Notificações (Win+N). Use Win+S para pesquisar, Win+Shift+N para notificações
-ou mude as combinações para recuperar os atalhos originais. Se uma política do
-Windows bloquear a Central de Notificações, o aviso indica a restrição.</p>
-<h2>Español</h2>
-<p>Atajos predeterminados: <strong>Win+Q</strong> cierra, <strong>Win+Z</strong> minimiza, <strong>Win+N</strong> maximiza/restaura,
-<strong>Win+Shift+N</strong> abre notificaciones y <strong>Win+S</strong> conserva la búsqueda de Windows.
-Cada acción tiene controles independientes para activar, cambiar el atajo,
-ignorar juegos y exigir dos pulsaciones. La protección para juegos está activada;
-la confirmación está desactivada de forma predeterminada.</p>
-<p>Con la confirmación activada, suelta la tecla y pulsa de nuevo en menos de
-3 segundos. El aviso desaparece después de 1,5 segundos, pero el plazo sigue
-vigente. Cambiar de ventana, usar otra acción, pulsar Esc o guardar ajustes cancela.</p>
-<p>En <strong>Apariencia del aviso</strong>, elige idioma automático/inglés/portugués/español,
-tema automático/oscuro/claro y <strong>Siempre visible</strong>. El modo automático sigue el
-idioma de visualización y el tema de Windows. El aviso no roba foco ni clics.
-Los ajustes siguen el idioma elegido en la interfaz de Windhawk.</p>
-<p>Compatible con Windows 11 x64 y Windhawk 1.7.3 o posterior. El mod se ejecuta
-en un proceso dedicado de Windhawk para ventanas normales. Las aplicaciones
-elevadas y el escritorio seguro quedan fuera del alcance. Usa el interruptor
-de Windhawk para desactivar todo el mod.</p>
-<p>En juegos protegidos, el escritorio, la barra de tareas, los menús o ventanas
-que no admiten la acción, se conserva el atajo original de Windows. En ventanas
-compatibles, los valores predeterminados sustituyen Búsqueda (Win+Q), diseños
-de acoplamiento (Win+Z) y Centro de notificaciones (Win+N). Usa Win+S para
-buscar, Win+Shift+N para las notificaciones o cambia las combinaciones para
-recuperar los atajos originales. Un aviso indica si una directiva de Windows
-bloquea el Centro de notificaciones.</p>
-]]></content>
-        <author>
-            <name>ghostzpy</name>
-            <uri>https://github.com/ghostzpy</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tray Ghost Icon Cleaner 1.0]]></title>
-        <id>https://windhawk.net/mods/tray-ghost-cleaner#b4af9e5deb45f2750f14949ef4ee4de379043274</id>
-        <link href="https://windhawk.net/mods/tray-ghost-cleaner"/>
-        <updated>2026-11-19T00:01:38.000Z</updated>
-        <content type="html"><![CDATA[<h1>Tray Ghost Icon Cleaner</h1>
-<p><strong>For Windows 10 and older Windows 11 versions.</strong> Newer Windows 11 versions with the
-new (XAML) notification area already track the owner processes and remove these icons
-themselves, so the mod isn't needed there. See <a href="#compatibility">Compatibility</a>.</p>
-<p>When a program crashes or is terminated, it never removes its notification area (tray)
-icon. Explorer only notices that the owner is gone when the mouse passes over the icon,
-so &quot;ghost&quot; icons and duplicates pile up until you hover over the tray.</p>
-<p><img src="https://raw.githubusercontent.com/Solomag/windhawk-assets/main/tray-ghost-cleaner/demo.gif" alt="Demo"></p>
-<h2>How it works</h2>
-<p>Programs add and remove tray icons with <code>Shell_NotifyIcon</code>, which delivers each request
-to the taskbar window as a <code>WM_COPYDATA</code> message. The mod watches those messages inside
-Explorer, together with Explorer's answer to each of them, so it knows exactly which icon
-belongs to which process — including icons identified by GUID — without reading any
-internal Explorer data.</p>
+<p><strong>Alt+`</strong> is the key above Tab on US keyboard layouts. The hotkeys are only
+taken over while a window of an enabled browser is focused. In other apps
+they work as usual.</p>
+<h2>Notes</h2>
 <ul>
-<li>For every process that owns an icon, the mod registers a wait on the process handle
-(no polling).</li>
-<li>When the process exits, the mod waits 1.5 s and then removes the icons that are still
-there with a regular <code>Shell_NotifyIcon(NIM_DELETE)</code>, using the same identity (window +
-ID, or GUID) the program registered them with. An icon is only removed when the window
-it belongs to is gone as well.</li>
-<li>A light 30 s check catches owners the mod couldn't open or wait on: it only looks at
-its own list, not at the tray.</li>
-<li>When the mod is loaded together with Explorer (the usual case), it sees every icon
-from the start. When it is enabled while Explorer is already running, it learns the
-existing icons the next time their program updates them (tooltip, image or state).
-Optionally, it can send the documented <code>TaskbarCreated</code> notification once so that
-running programs re-register their icons right away. Every program receives it as if
-Explorer had restarted, so it's off by default.</li>
-<li>Every removed ghost is logged — program path, PID and tooltip — to the Windhawk log
-and, optionally, to <code>ghosts.log</code> in the mod's storage folder (its full path is written
-to the Windhawk log), so you can find out which program keeps leaving them.</li>
-</ul>
-<h2>Compared to other approaches</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>This mod</th>
-<th>Tray refresh utilities</th>
-<th>Tray reset tools</th>
-<th>Restarting Explorer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Runs as</td>
-<td>part of Explorer, no extra process</td>
-<td>separate background program</td>
-<td>one-off program</td>
-<td>manual</td>
-</tr>
-<tr>
-<td>Trigger</td>
-<td>the owner process exiting</td>
-<td>timer or on demand</td>
-<td>when you run it</td>
-<td>when you do it</td>
-</tr>
-<tr>
-<td>Method</td>
-<td><code>NIM_DELETE</code> with the icon's own identity</td>
-<td>simulated mouse moves over the tray, or reading Explorer's toolbar memory from another process</td>
-<td>resets the tray settings in the registry</td>
-<td>full restart</td>
-</tr>
-<tr>
-<td>Icons registered by GUID</td>
-<td>removed (if the mod was enabled while Explorer was running: once their program has updated them)</td>
-<td>depends on the tool</td>
-<td>—</td>
-<td>removed</td>
-</tr>
-<tr>
-<td>Tells you who left the icon</td>
-<td>yes, program and PID</td>
-<td>no</td>
-<td>no</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Side effects</td>
-<td>none by default; the optional <code>TaskbarCreated</code> on load reaches every program, as if Explorer had restarted</td>
-<td>depends on the tool; may lag behind</td>
-<td>clears your icon visibility settings</td>
-<td>taskbar flickers, open Explorer windows close</td>
-</tr>
-</tbody>
-</table>
-<h2>Compatibility</h2>
-<ul>
-<li>Windows 10 — tested on 22H2.</li>
-<li>Older Windows 11 versions whose notification area still behaves like Windows 10's,
-and Windows 11 with the Windows 10 taskbar restored.</li>
-<li>Not needed on newer Windows 11 versions with the XAML notification area: Explorer
-there tracks the processes that own tray icons and removes the icons itself.</li>
+<li>Only the tabs of the focused browser window are listed. The current tab is
+marked with a blue bar.</li>
+<li>Tab titles are read with Windows UI Automation. Browsers don't expose tab
+addresses this way, so the site name next to a tab is taken from the end of
+its title, for example &quot;YouTube&quot; in &quot;Some video - YouTube&quot;. Tabs whose title
+doesn't end with a site name have no label.</li>
+<li>Opera should work too, but hasn't been tested. Vivaldi isn't supported, its
+tab bar is part of a web page.</li>
+<li>The first time the list is opened, the browser turns on its accessibility
+support, as it does for screen readers. This uses some extra CPU and memory
+in the browser while it's on.</li>
+<li>The mod runs in its own Windhawk process. It doesn't inject code into the
+browser or into Explorer.</li>
 </ul>
 ]]></content>
         <author>
-            <name>Solo_mag</name>
-            <uri>https://github.com/Solomag</uri>
+            <name>Dszae</name>
+            <uri>https://github.com/Dszae</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Change More Fonts 1.0.0]]></title>
-        <id>https://windhawk.net/mods/change-more-fonts#6c8d723b7e8dfef68d6b706de29dcf9a933cea70</id>
-        <link href="https://windhawk.net/mods/change-more-fonts"/>
-        <updated>2026-11-19T00:01:32.000Z</updated>
-        <content type="html"><![CDATA[<h1>Change More Fonts</h1>
-<p>Pick an installed font under <strong>Settings &gt; Font &gt; Font family</strong>. The default is
-Tahoma. The mod keeps the size requested by Windows. You can keep the requested
-weight or set your own. Some fonts take up more room, so labels may wrap or
-cut off sooner.</p>
-<h2>Where it applies</h2>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Text the mod can change</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>File Explorer</td>
-<td>File names, details, navigation pane, address bar, and context menus</td>
-</tr>
-<tr>
-<td>Desktop</td>
-<td>Icon labels and menus</td>
-</tr>
-<tr>
-<td>Taskbar</td>
-<td>Labels, tooltips, and menus</td>
-</tr>
-<tr>
-<td>Start and Search</td>
-<td>Menu text, app labels, and the search box</td>
-</tr>
-<tr>
-<td>Quick Settings and notification center</td>
-<td>Labels and buttons</td>
-</tr>
-<tr>
-<td>Windows Settings</td>
-<td>Page headings, row labels, and descriptions</td>
-</tr>
-<tr>
-<td>Touch keyboard and input UI</td>
-<td>Labels drawn by the Windows input host</td>
-</tr>
-<tr>
-<td>Classic controls in these processes</td>
-<td>Menus, tooltips, status bars, and dialogs</td>
-</tr>
-</tbody>
-</table>
-<p>Coverage depends on how each control draws text. DWM title bars, web content,
-and text rendered as images are outside the supported paths. The mod skips icon
-fonts, emoji, and some fonts used for specific scripts. With classic controls,
-pick a font that has the characters you need, since GDI fallback is limited.</p>
-<h2>Screenshots</h2>
-<h3>Windows Settings</h3>
-<table>
-<thead>
-<tr>
-<th>Mod off</th>
-<th>Zen Maru Gothic</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://raw.githubusercontent.com/xh1le/windhawk-mods/b44a0888305a411b432af67fb948b54ea8408cc8/screenshots/change-more-fonts/settings-before.png" alt="Windows Settings with the mod off"></td>
-<td><img src="https://raw.githubusercontent.com/xh1le/windhawk-mods/b44a0888305a411b432af67fb948b54ea8408cc8/screenshots/change-more-fonts/settings-after.png" alt="Windows Settings with Zen Maru Gothic"></td>
-</tr>
-</tbody>
-</table>
-<h3>Explorer details view</h3>
-<table>
-<thead>
-<tr>
-<th>Mod off</th>
-<th>Tahoma</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://raw.githubusercontent.com/xh1le/windhawk-mods/b44a0888305a411b432af67fb948b54ea8408cc8/screenshots/change-more-fonts/explorer-before.png" alt="Explorer details with the mod off"></td>
-<td><img src="https://raw.githubusercontent.com/xh1le/windhawk-mods/b44a0888305a411b432af67fb948b54ea8408cc8/screenshots/change-more-fonts/explorer-after.png" alt="Explorer details with Tahoma"></td>
-</tr>
-</tbody>
-</table>
-<h2>Changing more fonts</h2>
-<p>The default list covers the usual Windows UI families. Add specific families
-under <strong>Also replace these fonts</strong> or turn on <strong>Replace all eligible fonts</strong>
-to include document fonts such as Arial and Calibri. Turn on <strong>Include
-monospace fonts</strong> if you want the same rules to apply to fonts such as Consolas.
-The <strong>Keep these fonts</strong> list takes priority.</p>
-<p>To try a different app, add its executable under this mod's <strong>Advanced &gt;
-Process inclusion list</strong>. The app needs to use GDI or system DirectWrite for
-its text. Use the per-mod exclusion list to skip apps.</p>
-<h2>Compatibility</h2>
-<p>Run one font replacement mod at a time. If you use Explorer Font Changer,
-disable it before enabling Change More Fonts.</p>
-<p>Taskbar, Start menu, and notification center stylers can assign fonts to
-individual controls. If a theme's font should stay, add its family to
-<strong>Keep these fonts</strong>. To use your chosen family on that control, update the
-theme's font rule or add its family to <strong>Also replace these fonts</strong>.</p>
-<p>Explorer Translucent Menus and Translucent Windows also hook classic text
-drawing. If menu text looks wrong with either mod enabled, try <strong>Rendering &gt;
-Keep cached GDI fonts</strong>. Font creation and DirectWrite changes
-still work with that option on.</p>
-<p>Windows font substitutions you set separately can still affect GDI text
-with Change More Fonts paused.</p>
-<h2>Refresh the text</h2>
-<p>Restart the affected app if it still shows the old font. Signing out and back
-in refreshes Start and other shell processes. Restarting also helps if text
-is clipped because the app measured it with a cached font. Turning the mod
-off and restarting the affected app restores its usual font.</p>
-<p>The mod runs in 64-bit processes on Windows 11 and changes fonts in memory.
-Optional apps added through the inclusion list also need to be 64-bit.</p>
-]]></content>
-        <author>
-            <name>xh1le</name>
-            <uri>https://github.com/xh1le</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Fluent Radial Menu 0.9.0]]></title>
-        <id>https://windhawk.net/mods/fluent-radial-menu#f214aa6b6da1e0c23cfe21d161701fddc96acbe7</id>
-        <link href="https://windhawk.net/mods/fluent-radial-menu"/>
-        <updated>2026-11-19T00:01:27.000Z</updated>
-        <content type="html"><![CDATA[<h1>Fluent Radial Menu</h1>
-<p>Fluent Radial Menu adds a circular launcher to Windows 11. It comes with
-three pages of apps, folders, Windows shortcuts, and screen capture tools.</p>
-<p><img src="https://i.imgur.com/fj0r5vV.gif" alt="Fluent Radial Menu in action"></p>
-<h2>Getting started</h2>
-<ol>
-<li>Enable the mod in Windhawk and press <strong>Ctrl+Alt+Space</strong> to open the wheel
-at the pointer. To change the shortcut, set <strong>Activation shortcut</strong> in the
-mod's Windhawk settings and click <strong>Save settings</strong>.</li>
-<li>Click a wedge to run its action. Scroll to switch pages or press <strong>Esc</strong>
-to dismiss the wheel. You can also use the arrow keys, <strong>Enter</strong>, and
-<strong>Page Up</strong> or <strong>Page Down</strong>.</li>
-<li>Press <strong>F2</strong> while the wheel is open, or right-click it and choose
-<strong>Edit radial menu</strong>, to open the built-in editor.</li>
-</ol>
-<p>The wheel stays closed while the foreground app is fullscreen.</p>
-<h2>Screen capture tools</h2>
-<p>Choose <strong>Color picker</strong> on the first page to open the capture toolbar at the
-top center of the display under the pointer. Use the toolbar to switch to
-<strong>Copy text from screen</strong>. In the color picker, the magnifier shows the exact pixel
-under the pointer, its <strong>#RRGGBB</strong> value, and its screen coordinates. Click
-to copy that color, or drag around text in the text tool. A confirmation
-appears after copying. Press <strong>Esc</strong> to cancel. Text recognition runs locally
-using Windows OCR and the recognition languages installed for your account.</p>
-<p>To add either tool to an existing layout, select a wedge in <strong>Actions</strong> and
-choose it from <strong>Action type</strong>.</p>
-<h2>Make it yours</h2>
-<ul>
-<li><strong>Actions</strong> lets you choose an installed app, folder, file, website,
-Windows settings page, keyboard shortcut, command, or capture tool. Select <strong>Custom…</strong>
-to browse for a local target. Choose the original app icon, a built-in
-symbol, or an icon file. Drag a wedge in the preview to move or swap it.</li>
-<li><strong>Pages</strong> lets you add, rename, reorder, or duplicate up to eight pages
-with eight slots each.</li>
-<li><strong>Appearance</strong> controls the theme, accent, size, transparency, blur, and
-labels. <strong>Motion &amp; activation</strong> controls the profile shortcut, positioning,
-and animation. It can follow Windows' reduced motion setting.</li>
-<li><strong>Apply</strong> saves your changes. <strong>Test on desktop</strong> opens the applied wheel
-with actions disabled.</li>
-</ul>
-<h2>Share or back up a layout</h2>
-<p><strong>Export profile</strong> saves the current editor layout and settings as JSON.
-<strong>Import profile</strong> opens a profile in the editor. Review its actions and
-select <strong>Apply</strong> when you are ready to use it. Shared profiles reference apps,
-folders, and custom icon files by path, so those may need to be updated on
-another PC. The built-in icons travel with the profile.</p>
-<p>A shortcut set in Windhawk takes priority over the profile shortcut. Clear
-the Windhawk field to use the profile shortcut again. In <strong>Motion &amp; activation</strong>,
-focus <strong>Profile shortcut</strong> and press the middle button or either side button
-to record it. Hold any modifiers you want to include, then click <strong>Apply</strong>.
-A mouse shortcut toggles the wheel. <strong>Hold keyboard shortcut to select</strong> applies
-to keyboard activation. Check the Windhawk mod log if Windows cannot register
-a new shortcut.</p>
-<p>On 64-bit Windows, the menu opens native system apps from either Windhawk
-host. In the 32-bit file picker, enter <strong>%WINDIR%\Sysnative</strong> in the address
-bar to browse the native System32 folder. The editor saves those selections
-as System32 paths so the same profile works in the 64-bit host.</p>
-]]></content>
-        <author>
-            <name>Fenryr</name>
-            <uri>https://github.com/soldier93HUN</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Taskbar Position Shortcut 0.1.0]]></title>
-        <id>https://windhawk.net/mods/taskbar-position-shortcut#0af45f01bc2ecac581634d47e558017659639256</id>
-        <link href="https://windhawk.net/mods/taskbar-position-shortcut"/>
-        <updated>2026-11-18T23:04:15.000Z</updated>
-        <content type="html"><![CDATA[<h1>Taskbar Position Shortcut</h1>
-<p>Adds a <strong>Taskbar position</strong> submenu when you right-click the Windows 11 taskbar. Choose a global position for this Explorer session, or set a position for a specific app.</p>
-<p>Finally, Windows brought back a feature they thought was not being used. I prefer my taskbar on the left when working in Photoshop, and on top when scrolling through layers in After Effects.
-<img src="https://i.imgur.com/FlhqlgP.png" alt="Taskbar position context menu"></p>
+        <title type="html"><![CDATA[Taskbar Weather 1.6.1]]></title>
+        <id>https://windhawk.net/mods/taskbar-weather#57aa4fa484da22f897006c168040cb4957025f99</id>
+        <link href="https://windhawk.net/mods/taskbar-weather"/>
+        <updated>2026-11-26T07:02:22.000Z</updated>
+        <content type="html"><![CDATA[<h1>Taskbar Weather</h1>
+<p>The current weather at the left end of the taskbar, with a details card when
+you hover over it. It works on its own, without Windows Widgets.</p>
+<p><img src="https://raw.githubusercontent.com/DavidHiFi/davids-windhawk-mods/main/media/previews/taskbar-weather.png" alt="Taskbar Weather preview"></p>
 <h2>Features</h2>
 <ul>
-<li><strong>Global position:</strong> Choose Follow Windows setting, Top, Left, Right, or Bottom. This lasts for the current Explorer session and does not save an app rule.</li>
-<li><strong>Per-app positions:</strong> Open the app's submenu to save a position that overrides the global choice. Choose Default to use the global position.</li>
-<li><strong>Maximized-only mode:</strong> Only apply app rules when a maximized window is found.</li>
-<li><strong>Switch delay:</strong> Adjust how long the mod waits before moving the taskbar.</li>
-<li><strong>Blacklist:</strong> Ignore apps you don't want triggering position changes.</li>
+<li><strong>Weather icon, temperature and conditions</strong> on the taskbar, updated every
+ten minutes by default.</li>
+<li><strong>Hover card</strong> with the feels-like temperature, today's high and low,
+humidity and wind.</li>
+<li><strong>Click to refresh</strong> at any time.</li>
+<li><strong>Follows the Windows theme:</strong> dark text on a light taskbar, light text on a
+dark one. A setting can force either.</li>
+<li><strong>Celsius and km/h, or Fahrenheit and mph.</strong></li>
+<li><strong>No Widgets, MSN, Edge or location permission.</strong> Data comes from
+Open-Meteo, with no account or API key.</li>
 </ul>
-<p>App rules are saved locally in Windhawk and won't appear in its Settings tab.</p>
-<h2>Compatibility</h2>
-<p>Requires Windows 11 with native taskbar positioning. I've tried it on builds <strong>26220.9836</strong> and <strong>26300.9818</strong>. Older builds haven't been tested. I've only tested it with one monitor.</p>
-<p>The mod doesn't change the saved Windows taskbar position. It may conflict with other mods that move the taskbar.</p>
-<p>Credits: Taskbar menu injection based on <code>taskbar-restart-explorer</code>; runtime position hooking based on <code>taskbar-on-top</code>.</p>
+<h2>How it differs from other weather mods</h2>
+<p><a href="https://windhawk.net/mods/taskbar-clock-customization">Taskbar Clock Customization</a>
+can put weather text inside the clock, and
+<a href="https://windhawk.net/mods/micrographics-taskbar-clock">Micrographics Taskbar Clock</a>
+replaces the clock with one that can show a weather line.
+<a href="https://windhawk.net/mods/windhawk-topbar">TopBar for Windows</a> has a weather
+flyout in its own bar, and Desktop Live Overlay shows weather on the desktop.
+This mod adds its own icon and label at the left end of the stock taskbar,
+keeps the regular clock, shows a details card on hover, and needs no other
+mod.</p>
+<h2>Setup</h2>
+<p>Open the settings and enter your town's <strong>latitude</strong> and <strong>longitude</strong> in
+decimal degrees with a dot, for example <code>51.5074</code> and <code>-0.1278</code> (in most map
+apps, right-click a place to copy them). Add a <strong>place name</strong> to show it in the
+hover card.</p>
+<h2>Privacy and network use</h2>
+<p>The mod needs internet access. Your latitude and longitude, rounded to three
+decimals (about 100 m), are sent to <code>api.open-meteo.com</code> with every request:
+when the taskbar appears, after every settings change, at each update
+interval, once a minute while requests fail, when you click the label, when
+the PC wakes up and when the clock or time zone changes. Open-Meteo also sees
+your IP address. Nothing else is sent. Nothing is sent until both coordinates
+are filled in; clear them to stop all requests.</p>
+<h2>Notes</h2>
+<ul>
+<li>The label sits on top of the taskbar at the left offset you choose and does
+not push other buttons aside. With a centered taskbar, turn off Windows
+Widgets (it shows its own weather in the same place). With a left-aligned
+taskbar, raise the left offset so the label clears the Start button.</li>
+<li>Only the main taskbar shows the weather.</li>
+<li>The mod runs in its own background process, not inside Explorer, so a
+crash in the mod can't take Explorer down with it.</li>
+<li>If a request fails, the last reading stays and the card says when it was
+fetched. A reading is marked as stale once it is older than 30 minutes, or
+twice the update interval if that is longer.</li>
+<li>Vertical taskbars (left or right on Windows 10) are not supported. The
+label is not shown on them.</li>
+</ul>
+<h2>Credits</h2>
+<p>Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a> (CC BY 4.0).</p>
 ]]></content>
         <author>
-            <name>Oji</name>
-            <uri>https://github.com/eliogos</uri>
+            <name>DavidHiFi</name>
+            <uri>https://github.com/DavidHiFi</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[File Explorer List view indent fix and files area spacing 1.0]]></title>
-        <id>https://windhawk.net/mods/explorer-list-status-indent-fix#c46c6d935191a92e85fccde1603e585cce1860cf</id>
-        <link href="https://windhawk.net/mods/explorer-list-status-indent-fix"/>
-        <updated>2026-11-18T23:04:09.000Z</updated>
-        <content type="html"><![CDATA[<h1>File Explorer List view indent fix and files area spacing</h1>
-<p>Starting with Windows 11 version 22H2, File Explorer reserves a 28 pixels wide
-area to the left of <strong>every</strong> item in the <strong>List</strong>, <strong>Small icons</strong> and
-<strong>Content</strong> views.
-The area is meant for sync status icons of cloud folders (OneDrive and other
-sync providers), but it's reserved in every folder, including the folders
-which have nothing to do with the cloud. The result is an odd indent between
-the edge of an item and its icon.</p>
-<p>The mod removes that area where there's nothing to show. It also fixes a
-number of smaller spacing inconsistencies in the files area. Every adjustment
-has a setting, and can be changed or turned off.</p>
-<p>The mod only deals with the files area: the part of a folder window which
-shows the files and the folders. It doesn't touch the navigation pane, the
-command bar or the address bar.</p>
-<h2>Before and after</h2>
-<p>All the files are selected in the screenshots, to show the gaps around the
-items. The top half of each image is without the mod, the bottom half is with
-the mod and its default settings.</p>
-<p><strong>List</strong></p>
-<p><img src="https://i.imgur.com/wiG8znW.png" alt="List view, before and after"></p>
-<p><strong>Small icons</strong></p>
-<p><img src="https://i.imgur.com/zTgetJS.png" alt="Small icons view, before and after"></p>
-<p><strong>Content</strong></p>
-<p><img src="https://i.imgur.com/hpi1nNR.png" alt="Content view, before and after"></p>
-<p><strong>Details</strong></p>
-<p><img src="https://i.imgur.com/fYZUSwC.png" alt="Details view, before and after"></p>
-<p><strong>Tiles</strong></p>
-<p><img src="https://i.imgur.com/aKs5Nfm.png" alt="Tiles view, before and after"></p>
-<h2>What it does</h2>
+        <title type="html"><![CDATA[Extra Dim 1.0.0]]></title>
+        <id>https://windhawk.net/mods/extra-dim#2dfb44c5d376a01d2952572278d396d1b24bea75</id>
+        <link href="https://windhawk.net/mods/extra-dim"/>
+        <updated>2026-11-26T06:00:25.000Z</updated>
+        <content type="html"><![CDATA[<h1>Extra Dim</h1>
+<p>Dims the screen further than the brightness slider goes, and adds a warm tint
+for the evening. A flyout, a tray icon and global hotkeys.</p>
+<p><img src="https://raw.githubusercontent.com/DeepakBalaraman/extra-dim/master/assets/screenshot.png" alt="Extra Dim Mod Sample Screenshot"></p>
+<p>Open it with <strong>Ctrl+Alt+Shift+D</strong>, or by clicking the tray icon. The same controls
+are in the icon's right-click menu.</p>
+<h2>Dimming</h2>
 <ul>
-<li><strong>No empty status area.</strong> The reserved area is removed where there's nothing
-to show. Items which have a status icon, and all the items inside of a cloud
-folder, still have it, so the status icons keep working and stay aligned.
-Optionally, the status icons can be hidden in the List and Small icons views
-altogether.</li>
-<li><strong>Even gaps around an item.</strong> The gap between the border of an item and its
-content is the same on the left and on the right, in the List, Small icons,
-Tiles, Content and Details views. The size of the gap is configurable. The
-right gap of the List view has a correction of its own.</li>
-<li><strong>Narrower status icon area.</strong> The same gap is used on both sides of a
-status icon, also in the Tiles and Content views.</li>
-<li><strong>Icon and name.</strong> A configurable gap is added between the item icon and the
-name, the same in the List, Small icons and Details views. The names and the
-status icons can be moved vertically. The Small icons view has a separate
-offset for the names.</li>
-<li><strong>Rows of the Details view.</strong> The gap between the icon and the name is made
-the same as in the List view. A negative offset of the names is taken from
-the height of the rows, so that the names stay centered in the rows.</li>
-<li><strong>Rows of the Content view.</strong> The padding below the text of a row is
-configurable.</li>
-<li><strong>Even margins around the files area.</strong> The files area gets margins on all
-four sides, in all views. The horizontal and the vertical margins are
-configurable separately.</li>
+<li><strong>Extra dim</strong> goes darker than the bottom of the brightness slider. The slider
+stops at the ceiling you set, so the screen can't be dimmed to black by
+accident. Switching the toggle off keeps the level for next time.</li>
+<li><strong>Overlay</strong> (default) puts a click-through black layer over each display. Works
+with any GPU and driver, doesn't touch HDR, and costs nothing while it's off.
+It can't reach exclusive-fullscreen games, because those skip the desktop.</li>
+<li><strong>Gamma</strong> lowers the display's own gamma ramp instead, which does reach
+exclusive fullscreen. It depends on the driver: some games and most resolution
+changes reset it, and if the driver refuses, the mod falls back to the overlay
+by itself and says so under the Displays card.</li>
 </ul>
-<h2>Defaults</h2>
-<p>Only the removal of the empty status area is a fix in the strict sense. The
-other adjustments are a matter of taste, and they're turned on by default too.
-To get the stock look of a part back, use these values:</p>
+<h2>Warm tint</h2>
+<p>A second layer, with its own color and strength, on top of dimming or on its
+own. It needs no driver support. The panel keeps showing the strength while the
+tint is off, so the number you see is the level the switch brings back.</p>
+<p><strong>Ctrl+Alt+T</strong> switches it from anywhere.</p>
+<h2>Good to know</h2>
 <ul>
-<li>Even item spacing: off. That also turns off the gaps and the offsets of the
-icons and the names, and the adjustments of the Details and Content rows.</li>
-<li>Horizontal and vertical margins of the files area: 0.</li>
+<li>Every hotkey can be changed or cleared. The panel, dim and tint chords start
+bound; dim more and dim less start empty, because a global chord is a chord
+taken from every other program, and the panel, the tray menu and the wheel
+already change the level.</li>
+<li>By default the dim layer covers the panel too, so the panel shows what the
+screen looks like. Turn on <strong>Keep the panel above the dim layer</strong> to read it at
+full brightness; the controls work either way, because the layer lets clicks
+through.</li>
+<li>Under the overlay the pointer stays bright, because Windows draws it above
+every window. <strong>Dim the mouse pointer too</strong>, under Settings &gt; Dim, swaps the
+system cursors for darkened copies while dimming is on and puts them back
+afterwards. Gamma dims the pointer already. A run that ends without its
+shutdown leaves the swap behind, and the next start undoes it before anything
+else.</li>
+<li>The layer sits with ordinary topmost windows, so what Windows raises above them
+is not covered: the Alt+Tab switcher, shell flyouts that go topmost. Gamma does
+reach those, because it dims the scanout rather than the desktop.</li>
+<li>Gamma is the lighter of the two at the same percentage. Drivers limit how far
+the ramp may go, so the two methods look their most alike at low levels and
+drift apart as the level rises.</li>
+<li>Windows never dims the secure desktop, so the UAC prompt and the sign-in screen
+stay bright. That's the platform, not the mod.</li>
+<li>Levels, toggles, the method and the display choice are remembered unless you
+switch that off. The method and display chosen in the panel are kept beside the
+setting they replaced, so changing that setting in Windhawk wins them back.</li>
+<li>Everything is stored in the mod's own Windhawk storage, one set per user
+account. The mod doesn't read or write Windows' Night light setting, and sends
+nothing anywhere.</li>
 </ul>
-<h2>Scaling</h2>
-<p>The gaps, the paddings and the margins follow the display scaling. The
-vertical offsets and the correction of the right gap are small corrections of
-a pixel or two, and are applied in physical pixels regardless of the scaling.</p>
-<p>Items which are already displayed when the display scaling changes keep the
-old spacing until the folder is reopened or refreshed. With fractional scaling
-such as 125%, the gaps can differ by a pixel because of rounding.</p>
-<p>The mod works with the compact view of File Explorer turned on or off, and
-with the item check boxes.</p>
-<h2>Other programs</h2>
-<p>By default, the mod only applies to File Explorer (<code>explorer.exe</code>). That's the
-recommended setup, and nothing has to be configured for it.</p>
-<p>The same items view is used by the Open/Save dialogs of other programs. To fix
-it there too, add the programs to the custom process inclusion list in the
-Advanced tab of the mod, by the name of the executable file, for example
-<code>notepad.exe</code>. <code>explorer.exe</code> doesn't have to be added, it's always included.</p>
-<p>It's also possible to add <code>*</code>, which means all programs. The mod is then
-loaded into every process, including the ones which never show a file dialog,
-so adding only the programs you need is the lighter option.</p>
-<p>Only 64-bit programs are supported. In a program other than File Explorer, the
-mod does nothing until the program loads the items view (<code>explorerframe.dll</code>),
-which usually happens when a file dialog is opened for the first time.</p>
-<h2>How it works</h2>
-<p>The indent comes from <code>UIProperty::HasVisibleContent</code> in <code>explorerframe.dll</code>,
-which reports the status icons area as having content in the List, Small icons
-and Content views regardless of the actual content. The mod makes it report the
-actual state.</p>
-<p>Everything else is done by changing properties of DirectUI elements: of the
-items and of the items area. The elements are adjusted when they're created,
-and the windows which are already open are adjusted when the mod is loaded.
-The functions which are exported by <code>dui70.dll</code> are used for that.</p>
-<p>No files are modified. The adjustments are only made to elements which have
-the expected stock values, so that the mod stays out of the way of other
-customizations. When the mod is turned off, the stock values are restored.</p>
-<p>The code of the status area fix was verified to have the expected shape in
-Windows 11 builds 22621.317 - 22621.6274 (22H2, 23H2), 26100.1 - 26100.9974
-(24H2, 25H2), 28000.1761 - 28000.3086 (26H1) and 26300 (26H2 preview). The
-adjustments of the Details view rows were tested on build 26300 at 125%
-scaling.</p>
-]]></content>
-        <author>
-            <name>NDruce</name>
-            <uri>https://github.com/NDruce</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Explorer: No Help 1.0]]></title>
-        <id>https://windhawk.net/mods/explorer-no-help#80cb448b9b93e1d9af4c234fdfdd9d393d6f555f</id>
-        <link href="https://windhawk.net/mods/explorer-no-help"/>
-        <updated>2026-11-18T03:01:35.000Z</updated>
-        <content type="html"><![CDATA[<h1>Explorer: No Help</h1>
-<p>For Windows 10 File Explorer (the ribbon one).</p>
-<p>Before:
-<img src="https://raw.githubusercontent.com/vt-idiot/windhawk-mods/refs/heads/reeeeeeeee/before.png" alt="Before"></p>
-<p>After:
-<img src="https://raw.githubusercontent.com/vt-idiot/windhawk-mods/refs/heads/reeeeeeeee/after.png" alt="After"></p>
+<h2>Settings</h2>
 <ul>
-<li><strong>Hide Help button</strong>: Explorer's ribbon ships pre-compiled inside
-<code>SystemResources\ExplorerFrame.dll.mun</code> (resource <code>UIFILE/EXPLORER_RIBBON</code>).
-When the ribbon framework loads it, this mod hands back a patched copy with
-the <code>tabs_help</code> block (the <code>?</code> button) removed, the same result as if
-Microsoft had compiled the ribbon without a help button. Nothing on disk is
-touched.</li>
-<li><strong>Block F1</strong>: swallows bare F1 inside explorer.exe (folder windows, desktop,
-taskbar). Ctrl/Shift/Alt+F1 still go through, so Ctrl+F1 still collapses
-the ribbon. F1 in every other app is left alone.</li>
-</ul>
-<p>Restart Explorer after enabling the mod or toggling the Help button setting.
-The F1 setting takes effect immediately.</p>
-<p>If anything about the ribbon binary doesn't look exactly as expected, the
-patch bails out and logs why, and Explorer gets the original ribbon.</p>
-<p>Special thanks to d0gkiller87, whose <a href="https://windhawk.net/mods/f1-blocker">F1 Blocker</a>
-the F1 part copies, and to DarkShadow44’s reverse-engineering notes on UIRibbon.</p>
-]]></content>
-        <author>
-            <name>vt-idiot</name>
-            <uri>https://github.com/vt-idiot</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AI Text Assistant (?fix, ?formal, ?emojify, ?undo) 2.4.0]]></title>
-        <id>https://windhawk.net/mods/ai-inline-text-fixer#7476c81a7b59669ec34953c168b213bc782e60ac</id>
-        <link href="https://windhawk.net/mods/ai-inline-text-fixer"/>
-        <updated>2026-11-18T02:00:09.000Z</updated>
-        <content type="html"><![CDATA[<h1>AI Text Assistant (<code>?fix</code>, <code>?formal</code>, <code>?emojify</code>, <code>?undo</code>, ...)</h1>
-<p>Transform, polish, or rewrite your text anywhere in Windows simply by typing a quick command at the end of any text box.</p>
-<p>Works across chat apps, emails, web browsers, documents, social media, and forms.</p>
-<p><img src="https://raw.githubusercontent.com/NarayanChetri/Files/main/AI%20assistant.gif" alt="AI Text Assistant Demo"></p>
-<hr>
-<h3>Instant Commands (Type at the end of your text)</h3>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>What it does</th>
-<th>Example input</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>?fix</code></td>
-<td>Fixes spelling, grammar, punctuation, and clarity</td>
-<td><code>She dont has no time for that ?fix</code></td>
-</tr>
-<tr>
-<td><code>?formal</code></td>
-<td>Rewrites in a professional, polite business tone</td>
-<td><code>cant make it to the meeting today ?formal</code></td>
-</tr>
-<tr>
-<td><code>?casual</code></td>
-<td>Rewrites in a friendly, conversational tone</td>
-<td><code>I am writing to inquire regarding your plans ?casual</code></td>
-</tr>
-<tr>
-<td><code>?short</code></td>
-<td>Makes your message concise, crisp, and to the point</td>
-<td><code>Due to the fact that it is raining heavily outside right now ?short</code></td>
-</tr>
-<tr>
-<td><code>?emojify</code></td>
-<td>Enriches your text with expressive, fitting emojis</td>
-<td><code>Super excited for the weekend party ?emojify</code></td>
-</tr>
-<tr>
-<td><code>?undo</code></td>
-<td>Instantly reverts back to your original text</td>
-<td><code>?undo</code></td>
-</tr>
-</tbody>
-</table>
-<p><em>(You can type commands with or without a space, e.g., <code>?fix</code> or <code>? fix</code>).</em></p>
-<hr>
-<h3>Instant Undo &amp; Cancellation</h3>
-<ul>
-<li><strong>During AI generation</strong>: Press <strong>Esc</strong> at any time to immediately cancel and keep your original text untouched.</li>
-<li><strong>After AI generation</strong>: If you don't like the AI's result, simply type <strong><code>?undo</code></strong> (or <code>? undo</code>) in the text field to immediately revert back to your original text.</li>
-</ul>
-<hr>
-<h2>Free API Key Setup (No credit card required)</h2>
-<p>Get a free key from either provider below and paste it into the mod settings:</p>
-<ul>
-<li><strong>Google Gemini (Recommended)</strong>: <a href="https://aistudio.google.com/app/apikey">Get free Gemini API Key</a></li>
-<li><strong>Groq</strong>: <a href="https://console.groq.com/keys">Get free Groq API Key</a></li>
-</ul>
-<p><strong>Auto-Verification</strong>: As soon as you paste your key and save settings, the mod automatically tests the connection in the background and confirms it is working.</p>
-<hr>
-<h2>Safety &amp; Privacy</h2>
-<ul>
-<li><strong>What Data is Sent</strong>: When you type an active trigger (e.g. <code>?fix</code>, <code>?formal</code>), the text content of the active field (whatever Select All selects, up to the configured <code>max_chars</code> limit, 4,000 characters by default) is sent over an encrypted HTTPS connection directly to your chosen AI provider (<code>generativelanguage.googleapis.com</code> for Google Gemini, or <code>api.groq.com</code> for Groq). When you add or change an API key in settings, a brief connection test request sending the word <code>&quot;Hi&quot;</code> is performed to verify your key.</li>
-<li><strong>Provider Terms &amp; Data Handling</strong>: Because this mod uses your own direct API key with the provider, each provider's respective privacy policy and terms of service apply. For example, on Google Gemini's free tier, Google's terms state that submitted content may be used to improve products and may be reviewed by human reviewers. Groq's data retention and privacy policies apply when using Groq.</li>
-<li><strong>Clipboard History &amp; Cloud Sync</strong>: Reading the field uses <code>Ctrl+C</code>, so each time you use a command, the field's full text is added to your clipboard history (<code>Win+V</code>) and, if clipboard sync is set to automatic, synced to your other devices. However, during the replacement paste and when restoring your previous clipboard content, the mod applies Windows exclusion formats (<code>ExcludeClipboardContentFromMonitorProcessing</code>, <code>CanIncludeInClipboardHistory</code>, and <code>CanUploadToCloudClipboard</code>) so that intermediate changes and restored clipboard data are not duplicated into clipboard history or synced across devices.</li>
-<li><strong>Accidental Typing Protection</strong>: While the AI processes your request, keyboard input in the target window is safely paused so typed keystrokes do not interfere with processing. You can cancel any in-flight request at any time by pressing <code>Esc</code>. If you switch to another window or app while the AI is thinking, input in your other window is never blocked.</li>
-<li><strong>Terminal Protection</strong>: Command prompts and terminal windows (PowerShell, Command Prompt, Windows Terminal, ConHost, MinTTY, PuTTY, ConEmu) are excluded by class and process so shortcuts and triggers never interfere with console sessions.</li>
-<li><strong>Document Protection</strong>: Fields longer than the configured maximum character limit (<code>max_chars</code>) are left untouched to protect large open files and documents.</li>
-<li><strong>Dedicated Background Process</strong>: This mod runs safely as a dedicated Windhawk tool mod, isolating network and keyboard handling from <code>explorer.exe</code> to protect your taskbar and desktop stability.</li>
+<li><strong>Startup</strong> - start dimmed, the level to start at, remember changes.</li>
+<li><strong>Appearance</strong> - theme, accent color, panel opacity, panel scale.</li>
+<li><strong>Placement</strong> - corner, monitor, fine offsets, close on focus loss, tray icon.</li>
+<li><strong>Dim</strong> - step, maximum, method, all displays, exclude from captures, keep the
+panel bright, smooth changes, dim the pointer.</li>
+<li><strong>Tint</strong> - color and starting strength.</li>
+<li><strong>Shortcuts</strong> - one chord per action, written as on a keyboard: <code>ctrl+alt+d</code>.
+A chord needs Ctrl, Alt, Shift or Win; a lone key is ignored unless it is an
+F-key, so a stray letter can't be taken from every other program.</li>
 </ul>
 ]]></content>
         <author>
-            <name>Narayan</name>
-            <uri>https://github.com/NarayanChetri</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[File Type Properties Customization 1.0.0]]></title>
-        <id>https://windhawk.net/mods/file-type-properties-customization#1732db7b1ee9a37ded2057ba2502f8415229625d</id>
-        <link href="https://windhawk.net/mods/file-type-properties-customization"/>
-        <updated>2026-11-18T01:03:41.000Z</updated>
-        <content type="html"><![CDATA[<h1>File Type Properties Customization</h1>
-<p>Customize file icons and type descriptions by extension. Icons and descriptions
-can be enabled independently. File associations, default applications, and
-system thumbnail providers are preserved.</p>
-<p>Before:</p>
-<p><img src="https://raw.githubusercontent.com/FreshP-0325/windhawk-mod-assets/refs/heads/master/file-type-properties-customization/1.0.0/before.png" alt="Before"></p>
-<p>After:</p>
-<p><img src="https://raw.githubusercontent.com/FreshP-0325/windhawk-mod-assets/refs/heads/master/file-type-properties-customization/1.0.0/after.png" alt="After"></p>
-<h2>Windhawk settings</h2>
-<p>Fill in the first File type properties entry, then save settings. For example:</p>
-<ul>
-<li>Extensions: <code>.txt,.log</code></li>
-<li>Icon: <code>%SystemRoot%\System32\shell32.dll,70</code></li>
-<li>Description: <code>Text document</code></li>
-</ul>
-<p>Either property may be left empty to keep the preset or system value. A completely
-empty entry ends the list; entries below it are ignored. Windhawk's Textual mode
-can edit the same settings as YAML.</p>
-<h2>Optional INI preset</h2>
-<p>Enable Load INI preset and select an absolute INI path. The preset is read first;
-nonempty valid Windhawk settings override individual properties afterward.</p>
-<pre><code class="language-ini">[.txt,.log]
-Icon=icons\text.ico
-Description=Text document
-
-[.log]
-Description=Log file
-</code></pre>
-<p>Sections and keys are case-insensitive. Repeated sections merge per property in
-file order. Empty or invalid values do not erase earlier usable values. Relative
-resource paths use the INI directory; paths in settings must be absolute. Paths
-support environment variables. Quote icon paths containing commas. Icon indexes
-start at 0; negative indexes select resource IDs. Descriptions also accept
-<code>@module,-resourceID</code>, or <code>@@</code> to start literal text with <code>@</code>.</p>
-<p>Save INI files as UTF-8, or UTF-16 LE with BOM. Full-line comments start with
-<code>;</code> or <code>#</code>. After editing the INI, re-enable the mod or save a changed mod setting.
-The file is not watched automatically.</p>
-<h2>Refresh and limitations</h2>
-<ul>
-<li>Refresh Explorer when mappings change is off by default. Enabling it may redraw
-windows and reload thumbnails after changed mappings are saved, including the
-first or last rule. An empty configuration stays loaded without hooks while
-this option is on. Startup and shutdown do not request a refresh.</li>
-<li>Reopen affected windows or menus if they still show cached values.</li>
-<li>Prefer local icon files. First use of a slow or disconnected network resource
-can block the requesting window until Windows finishes trying to load it.</li>
-<li>By default, only explorer.exe is targeted. For an application's standard
-Open/Save dialogs, add its executable to Custom process inclusion list and
-restart it. Applications with their own rendering or caches may be unaffected.</li>
-<li>Description overrides cover supported Type columns, file properties, details,
-and native Shell New menus. If optional Shell symbols are unavailable, some
-views keep system descriptions; details are logged.</li>
-<li>x86, x64, and ARM64 are targeted. ARM64 has not been tested on a physical device.</li>
-</ul>
-]]></content>
-        <author>
-            <name>Momo</name>
-            <uri>https://github.com/FreshP-0325</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows 10 IME Tray Icon Fix 1.1]]></title>
-        <id>https://windhawk.net/mods/win10-ime-tray-icon-fix#2e3f0acc9c27caaffcd459f64d8cc9f91ae6d811</id>
-        <link href="https://windhawk.net/mods/win10-ime-tray-icon-fix"/>
-        <updated>2026-11-18T01:03:36.000Z</updated>
-        <content type="html"><![CDATA[<h1>Windows 10 IME Tray Icon Fix</h1>
-<h2>Default Stock Layout And The Bug</h2>
-<p><img src="https://raw.githubusercontent.com/yumeyao/windhawk-ime-tray-fix/refs/heads/master/doc/before-fix.gif" alt="Before Fix"></p>
-<pre><code class="language-text">  Screen Left  &lt;-----------------------------------------------------  Screen Right Edge
-  [Chevron ^]  |  [SysPager (Tray Icons)]  |  [IME Indicator]  |  [Clock]  |  [Show Desktop]
-</code></pre>
-<p>The notification area (<code>TrayNotifyWnd</code>) is <strong>anchored to the right edge</strong> of the screen, while child windows are laid out left-to-right. Notice that the <strong>IME Indicator sits right in the middle</strong>, between the third-party tray icons (<code>SysPager</code>) and the clock.</p>
-<p>When <strong>&quot;Let me set a different input method for each app window&quot;</strong> is enabled in a multilingual setup (e.g., English, Chinese, Japanese):</p>
-<ol>
-<li>While typing in an app, the indicator often displays <strong>2 glyphs</strong> (e.g., <code>CH</code> + <code>中</code> or <code>JP</code> + <code>あ</code>), occupying a wider slot.</li>
-<li>When you click a tray icon (such as Steam or WiFi), <code>WM_LBUTTONDOWN</code> immediately shifts focus to <code>explorer.exe</code>.</li>
-<li>The shell defaults to English, shrinking the indicator down to <strong>1 glyph</strong> (<code>ENG</code>).</li>
-<li>Because the clock on the right is pinned to the right edge, the shrunk width forces <strong>everything to the left of the indicator (<code>SysPager</code> and <code>Chevron ^</code>) to slide rightward</strong>.</li>
-<li>When <code>WM_LBUTTONUP</code> fires, the icon you aimed at has moved, and your click lands on whichever neighboring icon slid under your cursor.</li>
-</ol>
-<h2>The Fix</h2>
-<p>Each can solve the bug alone, but you can customize the taskbar by enabling multiple modes!</p>
-<h4>Mode 1: Move the input indicator to the leftmost (recommended)</h4>
-<p><img src="https://raw.githubusercontent.com/yumeyao/windhawk-ime-tray-fix/refs/heads/master/doc/after-fix.gif" alt="After Fix"></p>
-<pre><code class="language-text">[IME Indicator]  |  [Chevron ^]  |  [SysPager (Tray Icons)]  |  [Clock]  |  [Show Desktop]
-</code></pre>
-<p>The indicator takes the first slot and everything that used to sit left of it moves right by the indicator's width. Thus, every band is now to the right of the indicator, sits at a fixed distance from the right edge and never moves.</p>
-<h5>Mimicking Docked Language Bar?</h5>
-<p>Yes. But the docked language bar is broken in win10 (unstable, and won't work in remote desktop - even if you enable this option in both sides, and the latest MSPY doesn't support it unless you turn on &quot;Use the old version of MSPY&quot;) and is completely removed in win11.</p>
-<h4>Mode 2: Fixed width</h4>
-<p>Forces the indicator to always occupy a fixed width. The value is in <strong>pixels at 100% display scaling</strong> and is scaled by the monitor DPI. 36 = one glyph, 58 = glyph + secondary. Other values accepted too.</p>
-<h4>Mode 3: Hide secondary IME mode glyph (single-glyph mode)</h4>
-<p>Hides the 中/英 or あ/Ａ button inside the indicator.</p>
-<h2>Notes and known limitations</h2>
-<ul>
-<li>Source code and reverse engineering credit goes to AI bot (deepseek v4.1 flash).</li>
-<li>Heavily guided and reviewed by human (the author) to ensure the minimal path and minimal overhead. (The bots used extra threads, timers...)</li>
-<li>Tested on Windows 10 21H2. Windows 10 20H2 and above (including LTSC 2021, Builds 19042–19045) share the exact same binary codebase, so it should work flawlessly. Earlier builds (1903/1909 and prior) should theoretically work as well, but remain untested.</li>
-</ul>
-]]></content>
-        <author>
-            <name>yumeyao</name>
-            <uri>https://github.com/yumeyao</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[No-Click Touchpad: Tap & Hold 1.0]]></title>
-        <id>https://windhawk.net/mods/no-click-touchpad-tap-and-hold#9ccb1ec4dc9ddd22211cdf381f1b89d4edc1e56e</id>
-        <link href="https://windhawk.net/mods/no-click-touchpad-tap-and-hold"/>
-        <updated>2026-11-18T01:03:31.000Z</updated>
-        <content type="html"><![CDATA[<h1>No-Click Touchpad: Tap &amp; Hold</h1>
-<p>Right-click and drag with taps and holds, for touchpads whose click no longer works.
-It's also handy if you'd rather tap than press.</p>
-<h2>Right-click</h2>
-<p>Tap the bottom right corner of the touchpad with one finger to right-click. You can
-switch to the bottom left corner in the mod's settings. Without the mod, a tap in
-that corner is a normal left click.</p>
-<h2>Drag</h2>
-<p>Rest two fingers on the touchpad and keep them still for a moment. A ring appears
-around the pointer to show that a drag has started. Move your fingers to select text
-or move a window, and lift them to let go.</p>
-<p>To scroll, move two fingers straight away instead of holding them still first.
-Pinching or rotating two fingers won't start a drag.</p>
-<p>On a small touchpad, a long drag can run out of room. Set &quot;Time to reposition fingers&quot;
-in the mod's settings to keep the drag going for a moment after you lift your fingers,
-so you can put them back down and carry on. During that moment, a one-finger tap ends
-the drag right away.</p>
-<p><img src="https://raw.githubusercontent.com/mario0318/windhawk-mods/readme-images/no-click-touchpad-tap-and-hold/drag-ring-select-1.png" alt="Selecting text with a two-finger drag, ring around the pointer"></p>
-<p><img src="https://raw.githubusercontent.com/mario0318/windhawk-mods/readme-images/no-click-touchpad-tap-and-hold/drag-ring-select-2.png" alt="The ring stays on the pointer until the fingers lift"></p>
-<h2>Requirements</h2>
-<p>The touchpad has to be a Precision Touchpad, which most laptops from the last several
-years have. Some older touchpads aren't supported.</p>
-<p>In Settings &gt; Bluetooth &amp; devices &gt; Touchpad, keep &quot;Tap with a single finger to
-single-click&quot; on, since the corner right-click needs it. Turning off &quot;Tap twice and
-drag&quot; there is recommended, because with it on Windows waits a moment after every tap
-to see whether a drag follows. If letting go of a two-finger hold too early opens a
-menu, turn off &quot;Tap with two fingers to right-click&quot; as well.</p>
-<p>If you also use the Touchpad Relaxed Hand Tracking mod, turn off its two-finger option
-so the two mods don't both react to the same gesture.</p>
-<h2>Limitations</h2>
-<p>While you drag, some apps may still scroll a little, and a mouse wheel doesn't scroll.</p>
-<p>On Windhawk 1.x, neither the right-click nor the drag works in apps running as
-administrator. On a regular (not portable) install of Windhawk 2.0, both work there too.</p>
-<h2>Issues</h2>
-<p>Bugs and feature requests go on the <a href="https://github.com/mario0318/no-click-touchpad-tap-and-hold/issues">issues
-page</a>.</p>
-]]></content>
-        <author>
-            <name>mario0318</name>
-            <uri>https://github.com/mario0318</uri>
+            <name>DpakB</name>
+            <uri>https://github.com/DeepakBalaraman</uri>
         </author>
     </entry>
 </feed>
